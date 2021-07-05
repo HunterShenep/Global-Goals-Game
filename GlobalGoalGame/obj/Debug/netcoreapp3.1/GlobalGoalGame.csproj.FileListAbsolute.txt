@@ -54,3 +54,4 @@ C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debu
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\walkL2.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\walkL3.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\walkL4.xnb
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\solar-panel.xnb

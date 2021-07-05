@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <SourceFile>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/idleL.png</SourceFile>
-  <SourceTime>2021-07-04T20:55:50.8606396-05:00</SourceTime>
+  <SourceTime>2021-07-04T21:03:53.2497247-05:00</SourceTime>
   <DestFile>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/bin/Windows/idleL.xnb</DestFile>
-  <DestTime>2021-07-04T20:57:40.7966859-05:00</DestTime>
+  <DestTime>2021-07-05T12:05:03.7649245-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
