@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SourceFileCollection xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>Reach</Profile>
+  <Platform>Windows</Platform>
+  <Config />
+  <SourceFiles>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/bags.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/cigbuts.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/coke.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/doritos.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/pack-rings.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/sprite.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/idleL.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL1.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL2.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL3.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL4.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/statsFont.spritefont</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/galleryFont.spritefont</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/grass_bg.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/idle.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/statsFont.spritefont</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/top-left-for-money.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk1.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk2.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk3.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk4.png</File>
+  </SourceFiles>
+  <DestFiles>
+    <File>bags.png</File>
+    <File>cigbuts.png</File>
+    <File>coke.png</File>
+    <File>doritos.png</File>
+    <File>pack-rings.png</File>
+    <File>sprite.png</File>
+    <File>idleL.png</File>
+    <File>walkL1.png</File>
+    <File>walkL2.png</File>
+    <File>walkL3.png</File>
+    <File>walkL4.png</File>
+    <File>statsFont.spritefont</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+  </DestFiles>
+</SourceFileCollection>
