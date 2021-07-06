@@ -30,8 +30,11 @@ namespace GlobalGoalGame
 			Texture = theTextures[rand.Next(0, theTextures.Count)];
 			Value = (float)(rand.Next(0, 10) * 0.01);
 
-			int x = rand.Next(50, (Game1.GameWidth - 50));
+			int x = rand.Next(150, (Game1.GameWidth - 200));
 			int y = rand.Next(50, (Game1.GameHeight - 50));
+
+
+
 			BadLocation = new Vector2(x, y);
 			Location = new Vector2(BadLocation.X + 15, BadLocation.Y + 15);
 

@@ -13,6 +13,20 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont;statsFont.spritefont
+
+#begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont;statsFont.spritefont
+
 #begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/bags.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -145,6 +159,18 @@
 /processorParam:TextureFormat=Color
 /build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL4.png;walkL4.png
 
+#begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/panels/components.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/panels/components.png;components.png
+
 #begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Solar Panel/solar-panel.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -156,13 +182,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Solar Panel/solar-panel.png;solar-panel.png
-
-#begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/statsFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/statsFont.spritefont;statsFont.spritefont
 
 #begin galleryFont.spritefont
 /importer:FontDescriptionImporter
@@ -194,6 +213,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:idle.png
+
+#begin solar-panel.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:solar-panel.png
 
 #begin statsFont.spritefont
 /importer:FontDescriptionImporter

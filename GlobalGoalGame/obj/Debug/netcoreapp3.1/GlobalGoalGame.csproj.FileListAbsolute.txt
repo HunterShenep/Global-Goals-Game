@@ -46,7 +46,6 @@ C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debu
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\coke.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\doritos.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\pack-rings.xnb
-C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\sprite.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\top-left-for-money.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\statsFont.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\idleL.xnb
@@ -55,3 +54,5 @@ C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debu
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\walkL3.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\walkL4.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\solar-panel.xnb
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\components.xnb
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\sprite.xnb

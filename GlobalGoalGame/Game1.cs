@@ -1,4 +1,5 @@
 ﻿using GlobalGoalGame.Models;
+using GlobalGoalGame.Models.Button;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -16,7 +17,9 @@ namespace GlobalGoalGame
 		private SolarPanel solarPanel;
 		Texture2D background_sprite;
 		Texture2D topLeftPanel;
-
+		Texture2D componentsPanel;
+		MouseHandles mHandler;
+		public static String update;
 
 		public List<Texture2D> TrashTextures = new List<Texture2D>();
 		Random rand = new Random();
@@ -45,21 +48,27 @@ namespace GlobalGoalGame
 			// TODO: Add your initialization logic here
 
 			base.Initialize();
-
+			update = "a";
+			mHandler = new MouseHandles();
 			
 		}
 
 		protected override void LoadContent()
 		{
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
+			//STANDALONEs
+
 			background_sprite = Content.Load<Texture2D>("grass_bg");
+			
 			topLeftPanel = Content.Load<Texture2D>("top-left-for-money");
 			statsFont = Content.Load<SpriteFont>("statsFont");
 
 			//SOLAR PANEL TEXTURE #####
-
-			SolarPanel.Textures.Add(Content.Load<Texture2D>("solar-panel"));
 			solarPanel = new SolarPanel();
+			SolarPanel.Textures.Add(Content.Load<Texture2D>("solar-panel"));
+
+			//BUTTONS
+			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25)));
 
 			//MAN SPRITE TEXTURES #####
 			List<Texture2D> manTextures = new List<Texture2D>();
@@ -84,7 +93,7 @@ namespace GlobalGoalGame
 			TrashTextures.Add(Content.Load<Texture2D>("sprite"));
 			trash = new TrashSprite(TrashTextures);
 			trash.MakeTrash(TrashTextures);
-
+			componentsPanel = Content.Load<Texture2D>("components");
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -92,8 +101,18 @@ namespace GlobalGoalGame
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 
+
+
 			man.Update(gameTime);
 			trash.Update(gameTime);
+
+			MouseState mState = Mouse.GetState();
+			mHandler.Update(gameTime, mState);
+
+			foreach(SpriteButton sb in SpriteButton.Buttons)
+			{
+				sb.Update(gameTime, mState);
+			}
 
 			foreach(SolarPanel s in SolarPanel.TheSolarPanels)
 			{
@@ -113,7 +132,21 @@ namespace GlobalGoalGame
 
 			_spriteBatch.Draw(topLeftPanel, new Vector2(5, 5), Color.White);
 
-			_spriteBatch.DrawString(statsFont, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.White);
+			_spriteBatch.Draw(componentsPanel, new Vector2(1230, 10), Color.White);
+
+			foreach(SpriteButton s in SpriteButton.Buttons)
+			{
+				_spriteBatch.Draw(s.Texture, s.BadLocation, Color.White);
+			}
+
+			foreach(SolarPanel sp in SolarPanel.TheSolarPanels)
+			{
+				_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
+			}
+
+			
+			_spriteBatch.DrawString(statsFont, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.Black);
+			_spriteBatch.DrawString(statsFont, update, new Vector2(650, 15), Color.Black);
 			man.Draw(_spriteBatch);
 			trash.Draw(_spriteBatch);
 			_spriteBatch.End();

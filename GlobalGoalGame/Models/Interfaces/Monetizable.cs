@@ -12,7 +12,12 @@ namespace GlobalGoalGame
 
 		public float MoneyPerHour { get; set; }
 
-		public float Cost { get; set; }
+		public Vector2 BadLocation { get; set; }
+		public Vector2 Location { get; set; }
+
+		public bool Draggable { get; set; }
+
+		public static float Cost { get; set; }
 
 		public Random Rand { get; set; }
 
