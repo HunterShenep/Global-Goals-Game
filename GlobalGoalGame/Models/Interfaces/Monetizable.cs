@@ -13,6 +13,7 @@ namespace GlobalGoalGame
 		public float MoneyPerHour { get; set; }
 
 		public Vector2 BadLocation { get; set; }
+
 		public Vector2 Location { get; set; }
 
 		public bool Draggable { get; set; }

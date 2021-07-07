@@ -16,7 +16,7 @@ namespace GlobalGoalGame
 		public Vector2 Location;
 		
 
-		private bool walking;
+
 		private int walkTimer = 0;
 
 		private bool fReleased = true;
@@ -42,7 +42,7 @@ namespace GlobalGoalGame
 				{
 					Texture = textures[1];
 				}
-				
+
 			}
 			else if (walkTimer == 10)
 			{
@@ -88,9 +88,67 @@ namespace GlobalGoalGame
 					Texture = textures[1];
 				}
 
-				
+
 				walkTimer = 0;
 			}
+		}
+
+		private void DetermineWalk(KeyboardState kState)
+		{
+			
+
+			if (kState.IsKeyDown(Keys.W))
+			{
+				if (kState.IsKeyDown(Keys.W) && kState.IsKeyDown(Keys.A))
+				{
+					BadLocation.Y -= 1;
+					BadLocation.X -= 1;
+					Walk(true);
+
+				}
+				else if (kState.IsKeyDown(Keys.W) && kState.IsKeyDown(Keys.D))
+				{
+					BadLocation.Y -= 1;
+					BadLocation.X += 1;
+					Walk(false);
+				}
+				else
+				{
+					Walk(false);
+					BadLocation.Y -= 1;
+				}
+			}
+			else if (kState.IsKeyDown(Keys.S))
+			{
+				if (kState.IsKeyDown(Keys.S) && kState.IsKeyDown(Keys.A))
+				{
+					BadLocation.Y += 1;
+					BadLocation.X -= 1;
+					Walk(true);
+				}
+				else if (kState.IsKeyDown(Keys.S) && kState.IsKeyDown(Keys.D))
+				{
+					BadLocation.Y += 1;
+					BadLocation.X += 1;
+					Walk(false);
+				}
+				else
+				{
+					BadLocation.Y += 1;
+					Walk(false);
+				}
+			}
+			else if (kState.IsKeyDown(Keys.A))
+			{
+				BadLocation.X -= 1;
+				Walk(true);
+			}
+			else if (kState.IsKeyDown(Keys.D))
+			{
+				BadLocation.X += 1;
+				Walk(false);
+			}
+
 		}
 
 		public void Update(GameTime gameTime)
@@ -131,31 +189,11 @@ namespace GlobalGoalGame
 				fReleased = true;
 			}
 
-			//MOVEMENT
-			if (Keyboard.GetState().IsKeyDown(Keys.W))
-			{
-				BadLocation.Y -= 1;
-				Walk(false);
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.S))
-			{
-				
-				BadLocation.Y += 1;
-				Walk(false);
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.D))
-			{
-				BadLocation.X += 1;
-				Walk(false);
-			}
-			if (Keyboard.GetState().IsKeyDown(Keys.A))
-			{
-				BadLocation.X -= 1;
-				Walk(true);
-			}
+			DetermineWalk(Keyboard.GetState());
 
 			Location.X = BadLocation.X + 15;
 			Location.Y = BadLocation.Y + 25;
+
 		}
 
 

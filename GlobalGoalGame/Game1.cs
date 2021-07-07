@@ -109,11 +109,13 @@ namespace GlobalGoalGame
 			MouseState mState = Mouse.GetState();
 			mHandler.Update(gameTime, mState);
 
+			//Sprite Buttons
 			foreach(SpriteButton sb in SpriteButton.Buttons)
 			{
 				sb.Update(gameTime, mState);
 			}
 
+			//Solar panel 
 			foreach(SolarPanel s in SolarPanel.TheSolarPanels)
 			{
 				s.Update(gameTime);
