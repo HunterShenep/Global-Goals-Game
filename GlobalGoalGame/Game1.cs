@@ -23,6 +23,12 @@ namespace GlobalGoalGame
 		MouseHandles mHandler;
 		public static String update;
 
+		private int OneSecCounter = 0;
+		public static bool OneSecPassed = false;
+
+
+
+
 		public List<Texture2D> TrashTextures = new List<Texture2D>();
 		Random rand = new Random();
 
@@ -112,7 +118,7 @@ namespace GlobalGoalGame
 				Exit();
 
 
-
+			myCounterStuff();
 			man.Update(gameTime);
 			trash.Update(gameTime);
 
@@ -126,10 +132,7 @@ namespace GlobalGoalGame
 			}
 
 			//Solar panel 
-			foreach(SolarPanel s in SolarPanel.TheSolarPanels)
-			{
-				s.Update(gameTime);
-			}
+			solarPanel.Update(gameTime);
 
 			base.Update(gameTime);
 		}
@@ -164,6 +167,20 @@ namespace GlobalGoalGame
 			_spriteBatch.End();
 
 			base.Draw(gameTime);
+		}
+
+		private void myCounterStuff()
+		{
+			OneSecCounter++;
+			if (OneSecCounter == 60)
+			{
+				OneSecPassed = true;
+			}
+			else if (OneSecCounter == 61)
+			{
+				OneSecPassed = false;
+				OneSecCounter = 1;
+			}
 		}
 
 

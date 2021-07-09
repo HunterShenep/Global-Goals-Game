@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace GlobalGoalGame.Models
@@ -53,21 +54,24 @@ namespace GlobalGoalGame.Models
 
 		public void Update(GameTime gameTime)
 		{
-			if(TheSolarPanels.Count > 0)
+
+			if (Game1.OneSecPassed)
 			{
-				foreach(SolarPanel s in TheSolarPanels)
+				if (TheSolarPanels.Count > 0)
 				{
-					if (!s.Draggable)
+					foreach (SolarPanel s in TheSolarPanels)
 					{
-						if ((int)gameTime.TotalGameTime.Ticks % 60 == 0)
+						if (!s.Draggable)
 						{
-							Game1.Money += 0.01f;
+							Game1.Money += 0.005f;
+							Debug.WriteLine("Paying for: " + s.Uuid);
 						}
+
 					}
 
 				}
-
 			}
+
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{

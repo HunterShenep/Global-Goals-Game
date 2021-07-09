@@ -21,7 +21,7 @@ namespace GlobalGoalGame.Models.Button
 
 		public override void Update(GameTime gameTime, MouseState mState)
 		{
-			Debug.WriteLine("Solar List Size:  " + SolarPanel.TheSolarPanels.Count);
+			//Debug.WriteLine("Solar List Size:  " + SolarPanel.TheSolarPanels.Count);
 
 			if (SolarPanel.TheSolarPanels.Count > 0)
 			{
@@ -39,7 +39,6 @@ namespace GlobalGoalGame.Models.Button
 				if (mState.LeftButton == ButtonState.Pressed && mReleased == true)
 				{
 					clickCount ++;
-					//Debug.WriteLine("Click count:  " + clickCount);
 
 					foreach (SolarPanel s in SolarPanel.TheSolarPanels)
 					{

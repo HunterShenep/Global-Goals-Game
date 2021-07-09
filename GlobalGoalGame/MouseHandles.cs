@@ -14,7 +14,9 @@ namespace GlobalGoalGame
 
 		public void Update(GameTime gameTime, MouseState theState)
 		{
-			//Game1.update = "Mouse at: " + theState.X + theState.Y;
+			
+
+			//BUILD MENU BUTTON HANDLING LOGIC
 			if (theState.LeftButton == ButtonState.Pressed && mouseReleased == true)
 			{
 				
@@ -33,6 +35,8 @@ namespace GlobalGoalGame
 			{
 				mouseReleased = true;
 			}
+
+			//END #BUILD MENU BUTTON HANDLING LOGIC
 		}
 	}
 }
