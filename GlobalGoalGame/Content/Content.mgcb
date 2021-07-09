@@ -20,13 +20,6 @@
 /processorParam:TextureFormat=Compressed
 /build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont;statsFont.spritefont
 
-#begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont
-/importer:FontDescriptionImporter
-/processor:FontDescriptionProcessor
-/processorParam:PremultiplyAlpha=True
-/processorParam:TextureFormat=Compressed
-/build:../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Fonts/statsFont.spritefont;statsFont.spritefont
-
 #begin ../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Garbage/bags.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -213,6 +206,66 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:idle.png
+
+#begin oak1.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:oak1.png
+
+#begin oak2.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:oak2.png
+
+#begin oak3.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:oak3.png
+
+#begin oak4.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:oak4.png
+
+#begin oak5.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:oak5.png
 
 #begin solar-panel.png
 /importer:TextureImporter

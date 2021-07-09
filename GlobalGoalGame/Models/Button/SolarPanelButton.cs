@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace GlobalGoalGame.Models.Button
@@ -10,7 +11,8 @@ namespace GlobalGoalGame.Models.Button
 	class SolarPanelButton : SpriteButton
 	{
 
-		bool mReleased = false;
+		bool mReleased = true;
+		int clickCount = 0;
 
 		public SolarPanelButton(String name, Texture2D texture, Vector2 location) : base(name, texture, location)
 		{
@@ -19,8 +21,11 @@ namespace GlobalGoalGame.Models.Button
 
 		public override void Update(GameTime gameTime, MouseState mState)
 		{
+			Debug.WriteLine("Solar List Size:  " + SolarPanel.TheSolarPanels.Count);
+
 			if (SolarPanel.TheSolarPanels.Count > 0)
 			{
+				//UPDATING LOCATION ONLY
 				foreach (SolarPanel s in SolarPanel.TheSolarPanels)
 				{
 					if (s.Draggable)
@@ -30,18 +35,23 @@ namespace GlobalGoalGame.Models.Button
 				}
 
 
+				//MOUSE LOGIC
 				if (mState.LeftButton == ButtonState.Pressed && mReleased == true)
 				{
+					clickCount ++;
+					//Debug.WriteLine("Click count:  " + clickCount);
+
 					foreach (SolarPanel s in SolarPanel.TheSolarPanels)
 					{
-						if (s.Draggable)
+						if (s.Draggable && clickCount > 1)
 						{
 							s.Draggable = false;
+							clickCount = 0;
 						}
 					}
-
 					mReleased = false;
 				}
+
 				if (mState.LeftButton == ButtonState.Released)
 				{
 					mReleased = true;

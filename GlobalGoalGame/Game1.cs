@@ -1,5 +1,6 @@
 ﻿using GlobalGoalGame.Models;
 using GlobalGoalGame.Models.Button;
+using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -15,6 +16,7 @@ namespace GlobalGoalGame
 		private ManSprite man;
 		private TrashSprite trash;
 		private SolarPanel solarPanel;
+		private OakTree oakTree;
 		Texture2D background_sprite;
 		Texture2D topLeftPanel;
 		Texture2D componentsPanel;
@@ -30,7 +32,7 @@ namespace GlobalGoalGame
 		public static int GameWidth = 1400;
 		public static int GameHeight = 800;
 
-		public static float Money = 50;
+		public static float Money = 5000;
 
 		public Game1()
 		{
@@ -66,6 +68,14 @@ namespace GlobalGoalGame
 			//SOLAR PANEL TEXTURE #####
 			solarPanel = new SolarPanel();
 			SolarPanel.Textures.Add(Content.Load<Texture2D>("solar-panel"));
+
+			//Oak Tree Texture ####
+			oakTree = new OakTree();
+			OakTree.Textures.Add(Content.Load<Texture2D>("oak1"));
+			OakTree.Textures.Add(Content.Load<Texture2D>("oak2"));
+			OakTree.Textures.Add(Content.Load<Texture2D>("oak3"));
+			OakTree.Textures.Add(Content.Load<Texture2D>("oak4"));
+			OakTree.Textures.Add(Content.Load<Texture2D>("oak5"));
 
 			//BUTTONS
 			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25)));
