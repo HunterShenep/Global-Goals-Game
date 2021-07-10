@@ -21,8 +21,8 @@ namespace GlobalGoalGame.Models.Trees
 
 		public Texture2D Texture { set; get; }
 
-
 		public static float Cost = 0.50f;
+
 		public static List<OakTree> TheOakTrees = new List<OakTree>();
 
 		public static List<Texture2D> Textures = new List<Texture2D>();

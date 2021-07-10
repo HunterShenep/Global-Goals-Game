@@ -21,7 +21,9 @@ namespace GlobalGoalGame.Models
 		//STATIC
 		public static float Cost { get; set; }
 		public static List<Texture2D> Textures { get; set; }
+
 		public static List<SolarPanel> TheSolarPanels = new List<SolarPanel>();
+
 		//END STATIC
 
 		public Random Rand { get; set; }
