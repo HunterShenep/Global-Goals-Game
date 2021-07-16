@@ -17,12 +17,12 @@ namespace GlobalGoalGame.Models.Button
 
 		public static List<SpriteButton> Buttons = new List<SpriteButton>();
 
-		public SpriteButton(String name, Texture2D texture, Vector2 location)
+		public SpriteButton(String name, Texture2D texture, Vector2 location, int width, int height)
 		{
 			Name = name;
 			Texture = texture;
 			BadLocation = location;
-			Location = new Vector2(BadLocation.X + 30, BadLocation.Y + 25);
+			Location = new Vector2(BadLocation.X + (width/2), BadLocation.Y + (height/2));
 		}
 
 		public virtual void Update(GameTime gameTime, MouseState mState)

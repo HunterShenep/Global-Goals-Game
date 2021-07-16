@@ -9,7 +9,7 @@ namespace GlobalGoalGame
 	{
 		public TrashSprite LandTrash { get; }
 
-		public int LandNumber;
+		//public int LandNumber;
 
 		public Land(int numberOfLand, List<Texture2D> theTextures)
 		{

@@ -22,15 +22,16 @@ namespace GlobalGoalGame
 		Texture2D componentsPanel;
 		MouseHandles mHandler;
 		public static String update;
-
+		public List<Texture2D> TrashTextures = new List<Texture2D>();
+		Random rand = new Random();
 		private int OneSecCounter = 0;
 		public static bool OneSecPassed = false;
 
 
+		//STATIC STATISTICS
+		public static float Money = 5000;
+		public static float TotalOxygenProduced = 0f;
 
-
-		public List<Texture2D> TrashTextures = new List<Texture2D>();
-		Random rand = new Random();
 
 		//SpriteFont mainFont;
 		SpriteFont statsFont;
@@ -38,7 +39,7 @@ namespace GlobalGoalGame
 		public static int GameWidth = 1400;
 		public static int GameHeight = 800;
 
-		public static float Money = 5000;
+
 
 		public Game1()
 		{
@@ -84,7 +85,8 @@ namespace GlobalGoalGame
 			OakTree.Textures.Add(Content.Load<Texture2D>("oak5"));
 
 			//BUTTONS
-			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25)));
+			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25), SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT));
+			SpriteButton.Buttons.Add(new OakTreeButton("Oak Tree Button", OakTree.Textures[3], new Vector2(1300, -20), OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT));
 
 			//MAN SPRITE TEXTURES #####
 			List<Texture2D> manTextures = new List<Texture2D>();
@@ -131,8 +133,10 @@ namespace GlobalGoalGame
 				sb.Update(gameTime, mState);
 			}
 
-			//Solar panel 
+			//Placeable update
 			solarPanel.Update(gameTime);
+			oakTree.Update(gameTime);
+
 
 			base.Update(gameTime);
 		}
@@ -156,9 +160,28 @@ namespace GlobalGoalGame
 
 			foreach(SolarPanel sp in SolarPanel.TheSolarPanels)
 			{
-				_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
+				if (sp.Draggable)
+				{
+					_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
+				}
+				else
+				{
+					_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
+				}
 			}
 
+			foreach(OakTree ot in OakTree.TheOakTrees)
+			{
+				if (ot.Draggable)
+				{
+					_spriteBatch.Draw(ot.Texture, ot.BadLocation, Color.White);
+				}
+				else
+				{
+					_spriteBatch.Draw(ot.Texture, ot.BadLocation, Color.White);
+				}
+				
+			}
 			
 			_spriteBatch.DrawString(statsFont, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.Black);
 			_spriteBatch.DrawString(statsFont, update, new Vector2(650, 15), Color.Black);

@@ -14,7 +14,8 @@ namespace GlobalGoalGame.Models.Button
 		bool mReleased = true;
 		int clickCount = 0;
 
-		public SolarPanelButton(String name, Texture2D texture, Vector2 location) : base(name, texture, location)
+		public SolarPanelButton(String name, Texture2D texture, Vector2 location, int width, int height) 
+			: base(name, texture, location, width, height)
 		{
 			
 		}
@@ -30,7 +31,9 @@ namespace GlobalGoalGame.Models.Button
 				{
 					if (s.Draggable)
 					{
+						
 						s.BadLocation = new Vector2(mState.X, mState.Y);
+						s.Location = new Vector2(s.BadLocation.X + (SolarPanel.TEXTURE_WIDTH/2), s.BadLocation.Y + (SolarPanel.TEXTURE_HEIGHT/2));
 					}
 				}
 
@@ -65,11 +68,11 @@ namespace GlobalGoalGame.Models.Button
 
 			if(Game1.Money >= SolarPanel.Cost)
 			{
-				Console.WriteLine("CAN BUY A NEW SOLAR PANEL");
-				Game1.update = "YES";
-				Game1.Money -= 50;
+
+				Game1.Money -= SolarPanel.Cost;
 				SolarPanel dragSolarPanel = new SolarPanel(SolarPanel.Textures[0], new Vector2(mState.X, mState.Y), true);
 				SolarPanel.TheSolarPanels.Add(dragSolarPanel);
+				Debug.WriteLine("SOLAR DoStuff()");
 
 			}
 		}

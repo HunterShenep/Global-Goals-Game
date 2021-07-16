@@ -19,15 +19,16 @@ namespace GlobalGoalGame
 			//BUILD MENU BUTTON HANDLING LOGIC
 			if (theState.LeftButton == ButtonState.Pressed && mouseReleased == true)
 			{
-				
+				//COVERS OAKTREEBUTTON/SOLAR/ETC
 				foreach (SpriteButton sb in SpriteButton.Buttons)
 				{
 					mouseTargetDist = Vector2.Distance(new Vector2(theState.X, theState.Y), sb.Location);
-					if(mouseTargetDist < 25)
+					if(mouseTargetDist < 35)
 					{
 						sb.DoStuff(gameTime, theState);
 					}
 				}
+
 				mouseReleased = false;
 			}
 
@@ -37,6 +38,7 @@ namespace GlobalGoalGame
 			}
 
 			//END #BUILD MENU BUTTON HANDLING LOGIC
+
 		}
 	}
 }

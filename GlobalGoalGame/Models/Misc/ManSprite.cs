@@ -153,7 +153,7 @@ namespace GlobalGoalGame
 
 		public void Update(GameTime gameTime)
 		{
-			SpriteEffects s = SpriteEffects.FlipHorizontally;
+			//SpriteEffects s = SpriteEffects.FlipHorizontally;
 
 			//**** FOR LATER
 			float gTime = (float) gameTime.TotalGameTime.Ticks;

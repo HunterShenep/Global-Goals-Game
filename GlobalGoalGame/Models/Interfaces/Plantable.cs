@@ -6,15 +6,18 @@ using System.Text;
 
 namespace GlobalGoalGame.Models.Interfaces
 {
-	interface Plantable
+	interface Plantable : Placeable
 	{
-		public int Uuid { get; set; }
 
 		public float OxygenPerSecond { get; set; }
 
 		public bool MonetizeableTree { get; set; }
 
 		public float MoneyPerEvent { get; set; }
+
+		public int TimeAlive { get; set; }
+
+		public String ToString();
 
 	}
 }

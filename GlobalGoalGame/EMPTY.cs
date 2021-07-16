@@ -11,6 +11,7 @@ namespace GlobalGoalGame
 	{
 		private List<Texture2D> textures { get; set; }
 		public Texture2D Texture { get; set; }
+
 		public Vector2 Location;
 
 

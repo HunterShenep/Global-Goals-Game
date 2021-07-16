@@ -18,7 +18,7 @@ namespace GlobalGoalGame
 
 
 
-		private SpriteBatch _spriteBatch;
+		//private SpriteBatch _spriteBatch;
 		
 		// The trash 
 		public static List<TrashSprite> TheTrash = new List<TrashSprite>();

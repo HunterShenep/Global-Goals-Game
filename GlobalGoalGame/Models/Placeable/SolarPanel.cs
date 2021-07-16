@@ -9,6 +9,10 @@ namespace GlobalGoalGame.Models
 {
 	class SolarPanel : Monetizable
 	{
+
+		public const int TEXTURE_WIDTH = 59;
+		public const int TEXTURE_HEIGHT = 50;
+
 		public int Uuid { get; set; }
 		public float MoneyPerHour { get; set; }
 		public Texture2D Texture { get; }
@@ -41,7 +45,7 @@ namespace GlobalGoalGame.Models
 			MoneyPerHour = 1;
 			Texture = texture;
 			BadLocation = location;
-			Location = new Vector2(location.X - 30, location.Y - 25);
+			Location = new Vector2(location.X + (TEXTURE_WIDTH/2), location.Y + (TEXTURE_HEIGHT/2));
 			Draggable = draggable;
 		}
 
@@ -66,7 +70,8 @@ namespace GlobalGoalGame.Models
 						if (!s.Draggable)
 						{
 							Game1.Money += 0.005f;
-							Debug.WriteLine("Paying for: " + s.Uuid);
+							
+							//Debug.WriteLine("Paying for: " + s.Uuid);
 						}
 
 					}
