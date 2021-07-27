@@ -16,19 +16,25 @@
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL2.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL3.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Main Man/left/walkL4.png</File>
-    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/panels/components.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/../../../../../../../OneDrive/Western-Tech-Degree/Programming/Game Development/GGG_Assets/Solar Panel/solar-panel.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/galleryFont.spritefont</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/grass_bg.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/idle.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/mill1.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/mill2.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/mill3.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/mill4.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/mill5.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/mill6.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak1.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak2.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak3.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak4.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak5.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/panel-for-components.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/panel-for-live-stats.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/solar-panel.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/statsFont.spritefont</File>
-    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/top-left-for-money.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk1.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk2.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/walk3.png</File>
@@ -47,8 +53,14 @@
     <File>walkL2.png</File>
     <File>walkL3.png</File>
     <File>walkL4.png</File>
-    <File>components.png</File>
     <File>solar-panel.png</File>
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

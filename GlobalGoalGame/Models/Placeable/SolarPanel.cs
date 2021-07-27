@@ -42,16 +42,12 @@ namespace GlobalGoalGame.Models
 		{
 			Rand = new Random();
 			Uuid = Rand.Next(1, 50000);
-			MoneyPerHour = 1;
+			MoneyPerHour = 0.005f;
 			Texture = texture;
 			BadLocation = location;
 			Location = new Vector2(location.X + (TEXTURE_WIDTH/2), location.Y + (TEXTURE_HEIGHT/2));
 			Draggable = draggable;
 		}
-
-
-
-
 
 
 		public void LoadContent() {
@@ -69,7 +65,7 @@ namespace GlobalGoalGame.Models
 					{
 						if (!s.Draggable)
 						{
-							Game1.Money += 0.005f;
+							Game1.Money += s.MoneyPerHour;
 							
 							//Debug.WriteLine("Paying for: " + s.Uuid);
 						}

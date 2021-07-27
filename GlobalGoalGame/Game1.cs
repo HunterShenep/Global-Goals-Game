@@ -1,5 +1,6 @@
 ﻿using GlobalGoalGame.Models;
 using GlobalGoalGame.Models.Button;
+using GlobalGoalGame.Models.Placeable;
 using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -16,6 +17,7 @@ namespace GlobalGoalGame
 		private ManSprite man;
 		private TrashSprite trash;
 		private SolarPanel solarPanel;
+		private WindTurbine windTurbine;
 		private OakTree oakTree;
 		Texture2D background_sprite;
 		Texture2D topLeftPanel;
@@ -26,6 +28,7 @@ namespace GlobalGoalGame
 		Random rand = new Random();
 		private int OneSecCounter = 0;
 		public static bool OneSecPassed = false;
+		public static bool HalfSecondPassed = false;
 
 
 		//STATIC STATISTICS
@@ -69,7 +72,9 @@ namespace GlobalGoalGame
 
 			background_sprite = Content.Load<Texture2D>("grass_bg");
 			
-			topLeftPanel = Content.Load<Texture2D>("top-left-for-money");
+			topLeftPanel = Content.Load<Texture2D>("panel-for-live-stats");
+			componentsPanel = Content.Load<Texture2D>("panel-for-components");
+
 			statsFont = Content.Load<SpriteFont>("statsFont");
 
 			//SOLAR PANEL TEXTURE #####
@@ -84,9 +89,19 @@ namespace GlobalGoalGame
 			OakTree.Textures.Add(Content.Load<Texture2D>("oak4"));
 			OakTree.Textures.Add(Content.Load<Texture2D>("oak5"));
 
+			//WIND MILL
+			windTurbine = new WindTurbine();
+			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill1"));
+			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill2"));
+			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill3"));
+			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill4"));
+			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill5"));
+			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill6"));
+
 			//BUTTONS
 			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25), SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT));
 			SpriteButton.Buttons.Add(new OakTreeButton("Oak Tree Button", OakTree.Textures[3], new Vector2(1300, -20), OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT));
+			SpriteButton.Buttons.Add(new WindTurbineButton("Wind Turbine Button", WindTurbine.Textures[0], new Vector2(1300, 250), WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT));
 
 			//MAN SPRITE TEXTURES #####
 			List<Texture2D> manTextures = new List<Texture2D>();
@@ -111,7 +126,7 @@ namespace GlobalGoalGame
 			TrashTextures.Add(Content.Load<Texture2D>("sprite"));
 			trash = new TrashSprite(TrashTextures);
 			trash.MakeTrash(TrashTextures);
-			componentsPanel = Content.Load<Texture2D>("components");
+			
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -136,6 +151,7 @@ namespace GlobalGoalGame
 			//Placeable update
 			solarPanel.Update(gameTime);
 			oakTree.Update(gameTime);
+			windTurbine.Update(gameTime);
 
 
 			base.Update(gameTime);
@@ -160,27 +176,16 @@ namespace GlobalGoalGame
 
 			foreach(SolarPanel sp in SolarPanel.TheSolarPanels)
 			{
-				if (sp.Draggable)
-				{
 					_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
-				}
-				else
-				{
-					_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
-				}
+			}
+			foreach (WindTurbine sp in WindTurbine.TheWindTurbines)
+			{
+				_spriteBatch.Draw(sp.Texture, sp.BadLocation, Color.White);
 			}
 
-			foreach(OakTree ot in OakTree.TheOakTrees)
+			foreach (OakTree ot in OakTree.TheOakTrees)
 			{
-				if (ot.Draggable)
-				{
 					_spriteBatch.Draw(ot.Texture, ot.BadLocation, Color.White);
-				}
-				else
-				{
-					_spriteBatch.Draw(ot.Texture, ot.BadLocation, Color.White);
-				}
-				
 			}
 			
 			_spriteBatch.DrawString(statsFont, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.Black);
@@ -195,6 +200,7 @@ namespace GlobalGoalGame
 		private void myCounterStuff()
 		{
 			OneSecCounter++;
+
 			if (OneSecCounter == 60)
 			{
 				OneSecPassed = true;
@@ -204,6 +210,8 @@ namespace GlobalGoalGame
 				OneSecPassed = false;
 				OneSecCounter = 1;
 			}
+
+			
 		}
 
 
