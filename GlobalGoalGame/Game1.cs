@@ -5,8 +5,10 @@ using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using SpriteFontPlus;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace GlobalGoalGame
 {
@@ -38,6 +40,13 @@ namespace GlobalGoalGame
 
 		//SpriteFont mainFont;
 		SpriteFont statsFont;
+		private SpriteFont sansation_16;
+		private SpriteFont sansation_22;
+		private SpriteFont sansation_25;
+
+
+		private const int FontBitmapWidth = 1024;
+		private const int FontBitmapHeight = 1024;
 
 		public static int GameWidth = 1400;
 		public static int GameHeight = 800;
@@ -70,12 +79,18 @@ namespace GlobalGoalGame
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 			//STANDALONEs
 
+
 			background_sprite = Content.Load<Texture2D>("grass_bg");
-			
+
 			topLeftPanel = Content.Load<Texture2D>("panel-for-live-stats");
 			componentsPanel = Content.Load<Texture2D>("panel-for-components");
 
 			statsFont = Content.Load<SpriteFont>("statsFont");
+
+
+			//CUSTOM FONT STUFF ############################
+			createFonts();
+			//END CUSTOM FONT STUFF ############################
 
 			//SOLAR PANEL TEXTURE #####
 			solarPanel = new SolarPanel();
@@ -101,7 +116,7 @@ namespace GlobalGoalGame
 			//BUTTONS
 			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25), SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT));
 			SpriteButton.Buttons.Add(new OakTreeButton("Oak Tree Button", OakTree.Textures[3], new Vector2(1300, -20), OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT));
-			SpriteButton.Buttons.Add(new WindTurbineButton("Wind Turbine Button", WindTurbine.Textures[0], new Vector2(1300, 250), WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT));
+			SpriteButton.Buttons.Add(new WindTurbineButton("Wind Turbine Button", WindTurbine.Textures[0], new Vector2(1233, 86), WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT));
 
 			//MAN SPRITE TEXTURES #####
 			List<Texture2D> manTextures = new List<Texture2D>();
@@ -188,7 +203,7 @@ namespace GlobalGoalGame
 					_spriteBatch.Draw(ot.Texture, ot.BadLocation, Color.White);
 			}
 			
-			_spriteBatch.DrawString(statsFont, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.Black);
+			_spriteBatch.DrawString(sansation_22, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.White);
 			_spriteBatch.DrawString(statsFont, update, new Vector2(650, 15), Color.Black);
 			man.Draw(_spriteBatch);
 			trash.Draw(_spriteBatch);
@@ -212,6 +227,68 @@ namespace GlobalGoalGame
 			}
 
 			
+		}
+
+
+		private void createFonts()
+		{
+			TtfFontBakerResult fontBakeResult;
+			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					16,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_16 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
+			// ###
+			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					22,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_22 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
+			// ###
+			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					25,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_25 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
 		}
 
 

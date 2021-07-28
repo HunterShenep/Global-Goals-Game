@@ -68,3 +68,7 @@ C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debu
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\mill6.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\panel-for-components.xnb
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\panel-for-live-stats.xnb
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Cyotek.Drawing.BitmapFont.dll
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\SpriteFontPlus.dll
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\StbImageSharp.dll
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\StbTrueTypeSharp.dll
