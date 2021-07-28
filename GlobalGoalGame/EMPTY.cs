@@ -7,7 +7,7 @@ using System.Text;
 
 namespace GlobalGoalGame
 {
-	class Trash
+	class Empty
 	{
 		private List<Texture2D> textures { get; set; }
 		public Texture2D Texture { get; set; }
