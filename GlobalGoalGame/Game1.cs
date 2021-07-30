@@ -16,6 +16,8 @@ namespace GlobalGoalGame
 	{
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
+
+		public GameClock GameClock;
 		private ManSprite man;
 		private TrashSprite trash;
 		private SolarPanel solarPanel;
@@ -43,6 +45,8 @@ namespace GlobalGoalGame
 		private SpriteFont sansation_16;
 		private SpriteFont sansation_22;
 		private SpriteFont sansation_25;
+
+		private SpriteFont sansation_bold_25;
 
 
 		private const int FontBitmapWidth = 1024;
@@ -76,6 +80,7 @@ namespace GlobalGoalGame
 
 		protected override void LoadContent()
 		{
+			GameClock = new GameClock();
 			_spriteBatch = new SpriteBatch(GraphicsDevice);
 			//STANDALONEs
 
@@ -149,6 +154,7 @@ namespace GlobalGoalGame
 			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
 				Exit();
 
+			GameClock.Tick();
 
 			myCounterStuff();
 			man.Update(gameTime);
@@ -204,7 +210,7 @@ namespace GlobalGoalGame
 			}
 			
 			_spriteBatch.DrawString(sansation_22, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.White);
-			_spriteBatch.DrawString(statsFont, update, new Vector2(650, 15), Color.Black);
+			_spriteBatch.DrawString(sansation_bold_25, GameClock.GetTimeOfDayString() , new Vector2(645, 15), Color.Black);
 			man.Draw(_spriteBatch);
 			trash.Draw(_spriteBatch);
 			_spriteBatch.End();
@@ -288,6 +294,26 @@ namespace GlobalGoalGame
 				);
 
 				sansation_25 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
+
+			// ### SANSATION BOLD 25
+			using (var stream = File.OpenRead("Fonts/Sansation_Bold.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					25,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_bold_25 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
 		}
 
