@@ -14,8 +14,8 @@ namespace GlobalGoalGame.Models.Button
 		bool mReleased = true;
 		int clickCount = 0;
 
-		public SolarPanelButton(String name, Texture2D texture, Vector2 location, int width, int height) 
-			: base(name, texture, location, width, height)
+		public SolarPanelButton(String name, Texture2D texture, Vector2 location, int width, int height, float cost) 
+			: base(name, texture, location, width, height, cost)
 		{
 			
 		}

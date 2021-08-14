@@ -15,14 +15,21 @@ namespace GlobalGoalGame.Models.Button
 		public Vector2 BadLocation { get; set; }
 		public Vector2 Location { get; set; }
 
+		public float Cost { get; set; }
+
+		public int ID { get; set; }
+
 		public static List<SpriteButton> Buttons = new List<SpriteButton>();
 
-		public SpriteButton(String name, Texture2D texture, Vector2 location, int width, int height)
+		public SpriteButton(String name, Texture2D texture, Vector2 location, int width, int height, float cost)
 		{
 			Name = name;
 			Texture = texture;
 			BadLocation = location;
 			Location = new Vector2(BadLocation.X + (width/2), BadLocation.Y + (height/2));
+			Random rand = new Random();
+			ID = rand.Next(0, 60000) + rand.Next(5, 53223);
+			Cost = cost;
 		}
 
 		public virtual void Update(GameTime gameTime, MouseState mState)

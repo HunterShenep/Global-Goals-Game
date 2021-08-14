@@ -1,5 +1,6 @@
 ﻿using GlobalGoalGame.Models;
 using GlobalGoalGame.Models.Button;
+using GlobalGoalGame.Models.Misc;
 using GlobalGoalGame.Models.Placeable;
 using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
@@ -33,7 +34,7 @@ namespace GlobalGoalGame
 		private int OneSecCounter = 0;
 		public static bool OneSecPassed = false;
 		public static bool HalfSecondPassed = false;
-
+		public InfoBox InfoBox;
 
 		//STATIC STATISTICS
 		public static float Money = 5000;
@@ -46,7 +47,9 @@ namespace GlobalGoalGame
 		private SpriteFont sansation_22;
 		private SpriteFont sansation_25;
 
+		private SpriteFont sansation_bold_22;
 		private SpriteFont sansation_bold_25;
+		
 
 
 		private const int FontBitmapWidth = 1024;
@@ -119,9 +122,9 @@ namespace GlobalGoalGame
 			WindTurbine.Textures.Add(Content.Load<Texture2D>("mill6"));
 
 			//BUTTONS
-			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel Button", SolarPanel.Textures[0], new Vector2(1240, 25), SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT));
-			SpriteButton.Buttons.Add(new OakTreeButton("Oak Tree Button", OakTree.Textures[3], new Vector2(1300, -20), OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT));
-			SpriteButton.Buttons.Add(new WindTurbineButton("Wind Turbine Button", WindTurbine.Textures[0], new Vector2(1233, 86), WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT));
+			SpriteButton.Buttons.Add(new SolarPanelButton("Solar Panel", SolarPanel.Textures[0], new Vector2(1240, 25), SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT, SolarPanel.Cost));
+			SpriteButton.Buttons.Add(new OakTreeButton("Oak Tree", OakTree.Textures[3], new Vector2(1300, -20), OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT, OakTree.Cost));
+			SpriteButton.Buttons.Add(new WindTurbineButton("Wind Turbine", WindTurbine.Textures[0], new Vector2(1233, 86), WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT, WindTurbine.Cost));
 
 			//MAN SPRITE TEXTURES #####
 			List<Texture2D> manTextures = new List<Texture2D>();
@@ -146,7 +149,9 @@ namespace GlobalGoalGame
 			TrashTextures.Add(Content.Load<Texture2D>("sprite"));
 			trash = new TrashSprite(TrashTextures);
 			trash.MakeTrash(TrashTextures);
-			
+
+
+			InfoBox = new InfoBox();
 		}
 
 		protected override void Update(GameTime gameTime)
@@ -159,6 +164,8 @@ namespace GlobalGoalGame
 			myCounterStuff();
 			man.Update(gameTime);
 			trash.Update(gameTime);
+			InfoBox.Update(gameTime);
+
 
 			MouseState mState = Mouse.GetState();
 			mHandler.Update(gameTime, mState);
@@ -208,12 +215,22 @@ namespace GlobalGoalGame
 			{
 					_spriteBatch.Draw(ot.Texture, ot.BadLocation, Color.White);
 			}
+
+
 			
 			_spriteBatch.DrawString(sansation_22, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.White);
 			_spriteBatch.DrawString(sansation_bold_25, GameClock.GetTimeOfDayString() , new Vector2(645, 15), Color.Black);
 			man.Draw(_spriteBatch);
 			trash.Draw(_spriteBatch);
+
+			foreach (InfoBox t in InfoBox.TheInfoBoxes)
+			{
+				_spriteBatch.DrawString(sansation_bold_22, t.Message, t.Location, Color.Black);
+			}
+
 			_spriteBatch.End();
+
+
 
 			base.Draw(gameTime);
 		}
@@ -239,6 +256,9 @@ namespace GlobalGoalGame
 		private void createFonts()
 		{
 			TtfFontBakerResult fontBakeResult;
+
+			//Sansation Regular 16
+
 			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
 			{
 				// TODO: use this.Content to load your game content here
@@ -257,7 +277,7 @@ namespace GlobalGoalGame
 
 				sansation_16 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
-			// ###
+			// ### Sansation Regular 22
 			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
 			{
 				// TODO: use this.Content to load your game content here
@@ -276,7 +296,7 @@ namespace GlobalGoalGame
 
 				sansation_22 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
-			// ###
+			// ### Sansation Regular 25
 			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
 			{
 				// TODO: use this.Content to load your game content here
@@ -314,6 +334,26 @@ namespace GlobalGoalGame
 				);
 
 				sansation_bold_25 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
+
+			// ### SANSATION BOLD 22
+			using (var stream = File.OpenRead("Fonts/Sansation_Bold.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					22,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_bold_22 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
 		}
 

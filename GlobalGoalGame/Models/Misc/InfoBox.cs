@@ -1,6 +1,7 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
 namespace GlobalGoalGame.Models.Misc
@@ -16,30 +17,52 @@ namespace GlobalGoalGame.Models.Misc
 
 		private bool active { get; set; }
 
+		private int forID { get; set; }
+
+		public Vector2 Location { get; }
+
+
 		public InfoBox()
 		{
 
 		}
 
-		private InfoBox(string msg)
+		private InfoBox(string msg, Vector2 loc, int forID)
 		{
 			Message = msg;
 			active = true;
 			timeAlive = 0;
+			Location = loc;
+			this.forID = forID;
 		}
 
-		public static void Create(string msg)
+		public static void Create(string msg, Vector2 loc, int id)
 		{
-			TheInfoBoxes.Add(new InfoBox(msg));
+			bool exists = false;
+
+			foreach(InfoBox i in TheInfoBoxes)
+			{
+				if(i.forID == id)
+				{
+					exists = true;
+				}
+			}
+
+			if (!exists)
+			{
+				TheInfoBoxes.Add(new InfoBox(msg, loc, id));
+			}
+
+			
 		}
 
 		private void removeInactive()
 		{
-			for(int i = 0; i < TheInfoBoxes.Count; i++)
+			
+			for (int i = 0; i < TheInfoBoxes.Count; i++)
 			{
-				if(TheInfoBoxes[i].active == false)
+				if(!TheInfoBoxes[i].active)
 				{
-					//This may cause issue?
 					TheInfoBoxes.RemoveAt(i);
 				}
 			}
@@ -47,17 +70,22 @@ namespace GlobalGoalGame.Models.Misc
 
 		public void Update(GameTime gameTime)
 		{
-			foreach(InfoBox i in TheInfoBoxes)
+			if (Game1.OneSecPassed)
 			{
-				if (Game1.OneSecPassed)
+				foreach (InfoBox i in TheInfoBoxes)
 				{
-					timeAlive++;
-					if(timeAlive == 5)
+					Debug.WriteLine("TimeAlive: " + i.timeAlive + " - Active: " + i.active + " - ForID: " + i.forID);
+
+					i.timeAlive++;
+
+					if (i.timeAlive == 3)
 					{
-						active = false;
+						Debug.WriteLine("Old enough to delete");
+						i.active = false;
 					}
+					
 				}
-				
+				removeInactive();
 			}
 		}
 

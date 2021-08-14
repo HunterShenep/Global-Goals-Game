@@ -16,6 +16,8 @@ namespace GlobalGoalGame
 		public Vector2 Location { get; }
 		public float Value { get; }
 
+		public int ID { get; set; }
+
 		public bool Exists { get; set; }
 
 
@@ -56,12 +58,12 @@ namespace GlobalGoalGame
 				Name = "Soda Bottle";
 			}
 
-			Value = (float)(rand.Next(0, 10) * 0.01);
+			Value = (float)(rand.Next(1, 10) * 0.10);
 
 			int x = rand.Next(150, (Game1.GameWidth - 200));
 			int y = rand.Next(50, (Game1.GameHeight - 50));
 
-
+			ID = rand.Next(1, 60000) + rand.Next(1, 23452);
 
 			BadLocation = new Vector2(x, y);
 			Location = new Vector2(BadLocation.X + 15, BadLocation.Y + 15);
