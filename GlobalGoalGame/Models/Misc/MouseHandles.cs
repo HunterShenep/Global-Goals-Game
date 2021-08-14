@@ -38,6 +38,8 @@ namespace GlobalGoalGame
 			}
 
 			//END #BUILD MENU BUTTON HANDLING LOGIC
+			//Mouse hovering info 
+			
 
 		}
 	}

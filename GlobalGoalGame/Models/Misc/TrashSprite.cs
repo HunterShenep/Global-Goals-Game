@@ -10,6 +10,8 @@ namespace GlobalGoalGame
 	class TrashSprite
 	{
 		public Texture2D Texture { get; }
+		
+		public string Name { get; }
 		public Vector2 BadLocation { get; }
 		public Vector2 Location { get; }
 		public float Value { get; }
@@ -27,7 +29,33 @@ namespace GlobalGoalGame
 
 		public TrashSprite(List<Texture2D> theTextures)
 		{
-			Texture = theTextures[rand.Next(0, theTextures.Count)];
+			int textureIndex = rand.Next(0, theTextures.Count);
+			Texture = theTextures[textureIndex];
+			if(textureIndex == 0)
+			{
+				Name = "Pile of Bags";
+			}
+			else if(textureIndex == 1)
+			{
+				Name = "Cig Butts";
+			}
+			else if (textureIndex == 2)
+			{
+				Name = "Soda Can";
+			}
+			else if (textureIndex == 3)
+			{
+				Name = "Chip Bag";
+			}
+			else if (textureIndex == 4)
+			{
+				Name = "Plastic Rings";
+			}
+			else if (textureIndex == 5)
+			{
+				Name = "Soda Bottle";
+			}
+
 			Value = (float)(rand.Next(0, 10) * 0.01);
 
 			int x = rand.Next(150, (Game1.GameWidth - 200));
