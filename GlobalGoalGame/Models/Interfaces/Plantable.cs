@@ -17,6 +17,12 @@ namespace GlobalGoalGame.Models.Interfaces
 
 		public int TimeAlive { get; set; }
 
+		public bool Fruit { get; set; }
+
+		public int TimeSinceLastFruit { get; set; }
+
+		public int TimeUntilNextFruit { get; set; }
+
 		public String ToString();
 
 	}

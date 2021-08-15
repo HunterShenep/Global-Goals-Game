@@ -72,3 +72,4 @@ C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debu
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\SpriteFontPlus.dll
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\StbImageSharp.dll
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\StbTrueTypeSharp.dll
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\oak6.xnb

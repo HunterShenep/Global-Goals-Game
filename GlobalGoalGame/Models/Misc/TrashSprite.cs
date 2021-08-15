@@ -20,6 +20,9 @@ namespace GlobalGoalGame
 
 		public bool Exists { get; set; }
 
+		//STATIC
+		private static int TimedTrashTimer = 0;
+		private static int TimedTrashTimerMax = 5;
 
 
 		//private SpriteBatch _spriteBatch;
@@ -58,7 +61,7 @@ namespace GlobalGoalGame
 				Name = "Soda Bottle";
 			}
 
-			Value = (float)(rand.Next(1, 10) * 0.10);
+			Value = (float)(rand.Next(1, 300) * 0.01);
 
 			int x = rand.Next(150, (Game1.GameWidth - 200));
 			int y = rand.Next(50, (Game1.GameHeight - 50));
@@ -87,10 +90,10 @@ namespace GlobalGoalGame
 
 		}
 
-		public void MakeTrash(List<Texture2D> theTextures)
+		public void MakeTrash(List<Texture2D> theTextures, int min, int max)
 		{
 
-			int howMany = rand.Next(20, 100);
+			int howMany = rand.Next(min, max);
 			for (int i = 0; i < howMany; i++)
 			{
 				TrashSprite trash = new TrashSprite(theTextures);
@@ -99,6 +102,23 @@ namespace GlobalGoalGame
 			}
 
 			Console.WriteLine("Making trash");
+		}
+
+		public void TimedTrashIncrease()
+		{
+			if (Game1.OneSecPassed)
+			{
+				TimedTrashTimer++;
+
+				if(TimedTrashTimer == TimedTrashTimerMax)
+				{
+					TimedTrashTimer = 0;
+					Random rand = new Random();
+					TimedTrashTimerMax = rand.Next(3, 30);
+
+					MakeTrash(Game1.TrashTextures, 0, 3);
+				}
+			}
 		}
 	}
 }

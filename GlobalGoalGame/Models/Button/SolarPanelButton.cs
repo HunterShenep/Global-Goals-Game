@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GlobalGoalGame.Models.Misc;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -66,10 +67,10 @@ namespace GlobalGoalGame.Models.Button
 		public override void DoStuff(GameTime gameTime, MouseState mState)
 		{
 
-			if(Game1.Money >= SolarPanel.Cost)
+			if(Statistics.Money >= SolarPanel.Cost)
 			{
 
-				Game1.Money -= SolarPanel.Cost;
+				Statistics.Money -= SolarPanel.Cost;
 				SolarPanel dragSolarPanel = new SolarPanel(SolarPanel.Textures[0], new Vector2(mState.X, mState.Y), true);
 				SolarPanel.TheSolarPanels.Add(dragSolarPanel);
 				Debug.WriteLine("SOLAR DoStuff()");

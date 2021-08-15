@@ -1,4 +1,5 @@
-﻿using GlobalGoalGame.Models.Placeable;
+﻿using GlobalGoalGame.Models.Misc;
+using GlobalGoalGame.Models.Placeable;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -65,10 +66,10 @@ namespace GlobalGoalGame.Models.Button
 		public override void DoStuff(GameTime gameTime, MouseState mState)
 		{
 
-			if (Game1.Money >= WindTurbine.Cost)
+			if (Statistics.Money >= WindTurbine.Cost)
 			{
 
-				Game1.Money -= WindTurbine.Cost;
+				Statistics.Money -= WindTurbine.Cost;
 				WindTurbine windTurbine = new WindTurbine(WindTurbine.Textures[0], new Vector2(mState.X, mState.Y), true);
 				WindTurbine.TheWindTurbines.Add(windTurbine);
 				//Debug.WriteLine("SOLAR DoStuff()");

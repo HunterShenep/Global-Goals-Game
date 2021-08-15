@@ -71,7 +71,7 @@ namespace GlobalGoalGame
 
 		public string GetTimeOfDayString()
 		{
-			int hourOfDay = ((int)GetTotalHours() % (int)TICKS_PER_MINUTE) + 1;
+			int hourOfDay = ((int)GetTotalHours() % (int)TICKS_PER_MINUTE);
 
 			int minuteOfDay = (int)GetTotalMinutes() % (int)TICKS_PER_SECOND;
 			

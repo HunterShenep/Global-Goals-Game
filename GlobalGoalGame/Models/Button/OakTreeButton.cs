@@ -1,4 +1,5 @@
-﻿using GlobalGoalGame.Models.Trees;
+﻿using GlobalGoalGame.Models.Misc;
+using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -67,9 +68,9 @@ namespace GlobalGoalGame.Models.Button
 
 		public override void DoStuff(GameTime gameTime, MouseState mState)
 		{
-			if(Game1.Money >= OakTree.Cost)
+			if(Statistics.Money >= OakTree.Cost)
 			{
-				Game1.Money -= OakTree.Cost;
+				Statistics.Money -= OakTree.Cost;
 			}
 
 			OakTree dragOakTree = new OakTree(OakTree.Textures[0], new Vector2(mState.X, mState.Y), true);

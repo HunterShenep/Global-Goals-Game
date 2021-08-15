@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GlobalGoalGame.Models.Misc;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -65,7 +66,7 @@ namespace GlobalGoalGame.Models
 					{
 						if (!s.Draggable)
 						{
-							Game1.Money += s.MoneyPerHour;
+							Statistics.Money += s.MoneyPerHour;
 							
 							//Debug.WriteLine("Paying for: " + s.Uuid);
 						}

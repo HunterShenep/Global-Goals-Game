@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/solar-panel.png</SourceFile>
-  <SourceTime>2021-07-05T11:40:57.183228-05:00</SourceTime>
-  <DestFile>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/bin/Windows/solar-panel.xnb</DestFile>
-  <DestTime>2021-08-14T19:41:27.9182117-05:00</DestTime>
+  <SourceFile>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak6.png</SourceFile>
+  <SourceTime>2021-08-14T19:20:11.4023443-05:00</SourceTime>
+  <DestFile>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/bin/Windows/Content/oak6.xnb</DestFile>
+  <DestTime>2021-08-14T19:41:28.9037537-05:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2020-08-10T16:17:54-05:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

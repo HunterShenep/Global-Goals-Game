@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GlobalGoalGame.Models.Misc;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -166,7 +167,7 @@ namespace GlobalGoalGame
 
 
 			//F key -- CLEAN UP TRASH
-			if(Keyboard.GetState().IsKeyDown(Keys.F) && fReleased == true)
+			if(Keyboard.GetState().IsKeyDown(Keys.Space) && fReleased == true)
 			{
 				float distanceFromTrash = 0f;
 				
@@ -176,7 +177,7 @@ namespace GlobalGoalGame
 					distanceFromTrash = Vector2.Distance(TrashSprite.TheTrash[i].Location, Location);
 					if(distanceFromTrash < 30f)
 					{
-						Game1.Money += TrashSprite.TheTrash[i].Value;
+						Statistics.Money += TrashSprite.TheTrash[i].Value;
 						//TrashSprite.TheTrash[i].Exists = false;
 						TrashSprite.TheTrash.RemoveAt(i);
 
@@ -184,7 +185,7 @@ namespace GlobalGoalGame
 				}
 				fReleased = false;
 			}
-			if (Keyboard.GetState().IsKeyUp(Keys.F))
+			if (Keyboard.GetState().IsKeyUp(Keys.Space))
 			{
 				fReleased = true;
 			}

@@ -31,6 +31,7 @@
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak3.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak4.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak5.png</File>
+    <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/oak6.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/panel-for-components.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/panel-for-live-stats.png</File>
     <File>C:/Users/Hunter/source/repos/MONOGAME/GGG/GlobalGoalGame/GlobalGoalGame/Content/solar-panel.png</File>
@@ -54,6 +55,7 @@
     <File>walkL3.png</File>
     <File>walkL4.png</File>
     <File>solar-panel.png</File>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />

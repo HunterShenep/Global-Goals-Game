@@ -24,7 +24,7 @@ namespace GlobalGoalGame.Models.Misc
 
 		public InfoBox()
 		{
-
+			
 		}
 
 		private InfoBox(string msg, Vector2 loc, int forID)
@@ -74,13 +74,13 @@ namespace GlobalGoalGame.Models.Misc
 			{
 				foreach (InfoBox i in TheInfoBoxes)
 				{
-					Debug.WriteLine("TimeAlive: " + i.timeAlive + " - Active: " + i.active + " - ForID: " + i.forID);
+					//Debug.WriteLine("TimeAlive: " + i.timeAlive + " - Active: " + i.active + " - ForID: " + i.forID);
 
 					i.timeAlive++;
 
 					if (i.timeAlive == 3)
 					{
-						Debug.WriteLine("Old enough to delete");
+						//Debug.WriteLine("Old enough to delete");
 						i.active = false;
 					}
 					

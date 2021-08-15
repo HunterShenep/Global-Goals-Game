@@ -15,6 +15,10 @@ namespace GlobalGoalGame
 {
 	public class Game1 : Game
 	{
+
+		//Vector2 itemSize = font.MeasureString("[Menu Item]");
+		//The code above I stumbled on, will come in handy.
+
 		private GraphicsDeviceManager _graphics;
 		private SpriteBatch _spriteBatch;
 
@@ -29,16 +33,14 @@ namespace GlobalGoalGame
 		Texture2D componentsPanel;
 		MouseHandles mHandler;
 		public static String update;
-		public List<Texture2D> TrashTextures = new List<Texture2D>();
+		public static List<Texture2D> TrashTextures = new List<Texture2D>();
 		Random rand = new Random();
 		private int OneSecCounter = 0;
 		public static bool OneSecPassed = false;
 		public static bool HalfSecondPassed = false;
 		public InfoBox InfoBox;
 
-		//STATIC STATISTICS
-		public static float Money = 5000;
-		public static float TotalOxygenProduced = 0f;
+
 
 
 		//SpriteFont mainFont;
@@ -48,6 +50,7 @@ namespace GlobalGoalGame
 		private SpriteFont sansation_25;
 
 		private SpriteFont sansation_bold_22;
+		private SpriteFont sansation_bold_23;
 		private SpriteFont sansation_bold_25;
 		
 
@@ -111,6 +114,7 @@ namespace GlobalGoalGame
 			OakTree.Textures.Add(Content.Load<Texture2D>("oak3"));
 			OakTree.Textures.Add(Content.Load<Texture2D>("oak4"));
 			OakTree.Textures.Add(Content.Load<Texture2D>("oak5"));
+			OakTree.Textures.Add(Content.Load<Texture2D>("oak6"));
 
 			//WIND MILL
 			windTurbine = new WindTurbine();
@@ -126,6 +130,18 @@ namespace GlobalGoalGame
 			SpriteButton.Buttons.Add(new OakTreeButton("Oak Tree", OakTree.Textures[3], new Vector2(1300, -20), OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT, OakTree.Cost));
 			SpriteButton.Buttons.Add(new WindTurbineButton("Wind Turbine", WindTurbine.Textures[0], new Vector2(1233, 86), WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT, WindTurbine.Cost));
 
+
+			//TRASH TEXTURES
+			TrashTextures.Add(Content.Load<Texture2D>("bags"));
+			TrashTextures.Add(Content.Load<Texture2D>("cigbuts"));
+			TrashTextures.Add(Content.Load<Texture2D>("coke"));
+			TrashTextures.Add(Content.Load<Texture2D>("doritos"));
+			TrashTextures.Add(Content.Load<Texture2D>("pack-rings"));
+			TrashTextures.Add(Content.Load<Texture2D>("sprite"));
+			trash = new TrashSprite(TrashTextures);
+
+			trash.MakeTrash(TrashTextures, 40, 50);
+
 			//MAN SPRITE TEXTURES #####
 			List<Texture2D> manTextures = new List<Texture2D>();
 			manTextures.Add(Content.Load<Texture2D>("idle"));
@@ -140,15 +156,6 @@ namespace GlobalGoalGame
 			manTextures.Add(Content.Load<Texture2D>("walkL4"));
 			man = new ManSprite(manTextures);
 
-			//TRASH TEXTURES
-			TrashTextures.Add(Content.Load<Texture2D>("bags"));
-			TrashTextures.Add(Content.Load<Texture2D>("cigbuts"));
-			TrashTextures.Add(Content.Load<Texture2D>("coke"));
-			TrashTextures.Add(Content.Load<Texture2D>("doritos"));
-			TrashTextures.Add(Content.Load<Texture2D>("pack-rings"));
-			TrashTextures.Add(Content.Load<Texture2D>("sprite"));
-			trash = new TrashSprite(TrashTextures);
-			trash.MakeTrash(TrashTextures);
 
 
 			InfoBox = new InfoBox();
@@ -162,8 +169,11 @@ namespace GlobalGoalGame
 			GameClock.Tick();
 
 			myCounterStuff();
-			man.Update(gameTime);
+			
 			trash.Update(gameTime);
+			trash.TimedTrashIncrease();
+
+			man.Update(gameTime);
 			InfoBox.Update(gameTime);
 
 
@@ -218,14 +228,22 @@ namespace GlobalGoalGame
 
 
 			
-			_spriteBatch.DrawString(sansation_22, ("Money: $" + Money.ToString("0.00")), new Vector2(15, 15), Color.White);
+			_spriteBatch.DrawString(sansation_22, ("Money: $" + Statistics.Money.ToString("0.00")), new Vector2(15, 15), Color.White);
 			_spriteBatch.DrawString(sansation_bold_25, GameClock.GetTimeOfDayString() , new Vector2(645, 15), Color.Black);
 			man.Draw(_spriteBatch);
 			trash.Draw(_spriteBatch);
 
 			foreach (InfoBox t in InfoBox.TheInfoBoxes)
 			{
-				_spriteBatch.DrawString(sansation_bold_22, t.Message, t.Location, Color.Black);
+				//spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, 1 * scale), backColor, 0, origin, scale, SpriteEffects.None, 1f);
+				//spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, 1 * scale), backColor, 0, origin, scale, SpriteEffects.None, 1f);
+
+
+				//_spriteBatch.DrawString(sansation_22, t.Message, new Vector2(t.Location.X + 1, t.Location.Y + 1), Color.Black);
+				//_spriteBatch.DrawString(sansation_22, t.Message, new Vector2(t.Location.X - 1, t.Location.Y - 1), Color.Black);
+				//_spriteBatch.DrawString(sansation_22, t.Message, t.Location, Color.White);
+				DrawStroke(sansation_bold_23, t.Message, t.Location);
+
 			}
 
 			_spriteBatch.End();
@@ -233,6 +251,13 @@ namespace GlobalGoalGame
 
 
 			base.Draw(gameTime);
+		}
+
+		public void DrawStroke(SpriteFont font, string message, Vector2 location)
+		{
+			_spriteBatch.DrawString(font, message, new Vector2(location.X + 1, location.Y + 1), Color.Black);
+			_spriteBatch.DrawString(font, message, new Vector2(location.X - 1, location.Y - 1), Color.Black);
+			_spriteBatch.DrawString(font, message, location, Color.White);
 		}
 
 		private void myCounterStuff()
@@ -314,6 +339,26 @@ namespace GlobalGoalGame
 				);
 
 				sansation_25 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
+
+			// ### SANSATION BOLD 23
+			using (var stream = File.OpenRead("Fonts/Sansation_Bold.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					23,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_bold_23 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
 
 			// ### SANSATION BOLD 25
