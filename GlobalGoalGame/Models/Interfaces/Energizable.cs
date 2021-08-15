@@ -7,9 +7,11 @@ using System.Text;
 
 namespace GlobalGoalGame
 {
-	interface Monetizable : Placeable
+	interface Energizable : Placeable
 	{
-		public float MoneyPerHour { get; set; }
+		public float MoneyPerMinute { get; set; }
+
+		public float KWPerMinute { get; set; }
 
 
 	}

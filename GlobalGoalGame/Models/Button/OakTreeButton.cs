@@ -71,12 +71,9 @@ namespace GlobalGoalGame.Models.Button
 			if(Statistics.Money >= OakTree.Cost)
 			{
 				Statistics.Money -= OakTree.Cost;
+				OakTree dragOakTree = new OakTree(OakTree.Textures[0], new Vector2(mState.X, mState.Y), true);
+				OakTree.TheOakTrees.Add(dragOakTree);
 			}
-
-			OakTree dragOakTree = new OakTree(OakTree.Textures[0], new Vector2(mState.X, mState.Y), true);
-			OakTree.TheOakTrees.Add(dragOakTree);
-			//base.DoStuff(gameTime, mState);
-			Debug.WriteLine("OAK TREE DoStuff()");
 		}
 
 	}

@@ -74,7 +74,7 @@ namespace GlobalGoalGame
 					if (mouseTargetDistInfoBox < 25)
 					{
 						Vector2 newLocation = new Vector2(ot.Location.X - 100, ot.Location.Y);
-						InfoBox.Create("Oxygen Per Second\n                  " + ot.OxygenPerSecond + " psi\n", newLocation, ot.Uuid);
+						InfoBox.Create("Oxygen Per Second\n             " + ot.OxygenPerSecond + " kg\n", newLocation, ot.Uuid);
 					}
 				}
 			}

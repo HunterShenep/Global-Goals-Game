@@ -8,20 +8,21 @@ using System.Text;
 
 namespace GlobalGoalGame.Models
 {
-	class SolarPanel : Monetizable
+	class SolarPanel : Energizable
 	{
 
 		public const int TEXTURE_WIDTH = 59;
 		public const int TEXTURE_HEIGHT = 50;
 
 		public int Uuid { get; set; }
-		public float MoneyPerHour { get; set; }
+		public float MoneyPerMinute { get; set; }
 		public Texture2D Texture { get; }
 		
 		public bool Draggable { get; set; }
 		public Vector2 Location { get; set; }
 		public Vector2 BadLocation { get; set; }
-	
+
+		public float KWPerMinute { get; set; }
 
 		//STATIC
 		public static float Cost { get; set; }
@@ -43,11 +44,12 @@ namespace GlobalGoalGame.Models
 		{
 			Rand = new Random();
 			Uuid = Rand.Next(1, 50000);
-			MoneyPerHour = 0.005f;
+			MoneyPerMinute = 0.005f;
 			Texture = texture;
 			BadLocation = location;
 			Location = new Vector2(location.X + (TEXTURE_WIDTH/2), location.Y + (TEXTURE_HEIGHT/2));
 			Draggable = draggable;
+			KWPerMinute = 0.0041f;
 		}
 
 
@@ -66,7 +68,7 @@ namespace GlobalGoalGame.Models
 					{
 						if (!s.Draggable)
 						{
-							Statistics.Money += s.MoneyPerHour;
+							Statistics.Money += s.MoneyPerMinute;
 							
 							//Debug.WriteLine("Paying for: " + s.Uuid);
 						}

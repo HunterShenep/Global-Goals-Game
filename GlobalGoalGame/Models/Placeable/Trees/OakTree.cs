@@ -94,7 +94,7 @@ namespace GlobalGoalGame.Models.Trees
 					{
 						if (!ot.Draggable)
 						{
-							Statistics.TotalOxygenProduced += OxygenPerSecond;
+							Statistics.TotalOxygenProduced += ot.OxygenPerSecond;
 							ot.TimeAlive++;
 							TreeEvolve(ot);
 

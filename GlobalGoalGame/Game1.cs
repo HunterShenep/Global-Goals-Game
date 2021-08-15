@@ -46,6 +46,7 @@ namespace GlobalGoalGame
 		//SpriteFont mainFont;
 		SpriteFont statsFont;
 		private SpriteFont sansation_16;
+		private SpriteFont sansation_20;
 		private SpriteFont sansation_22;
 		private SpriteFont sansation_25;
 
@@ -169,7 +170,8 @@ namespace GlobalGoalGame
 			GameClock.Tick();
 
 			myCounterStuff();
-			
+			Statistics.CalculateStatistics();
+
 			trash.Update(gameTime);
 			trash.TimedTrashIncrease();
 
@@ -207,7 +209,11 @@ namespace GlobalGoalGame
 
 			_spriteBatch.Draw(componentsPanel, new Vector2(1230, 10), Color.White);
 
-			foreach(SpriteButton s in SpriteButton.Buttons)
+			trash.Draw(_spriteBatch);
+			man.Draw(_spriteBatch);
+
+
+			foreach (SpriteButton s in SpriteButton.Buttons)
 			{
 				_spriteBatch.Draw(s.Texture, s.BadLocation, Color.White);
 			}
@@ -228,22 +234,16 @@ namespace GlobalGoalGame
 
 
 			
-			_spriteBatch.DrawString(sansation_22, ("Money: $" + Statistics.Money.ToString("0.00")), new Vector2(15, 15), Color.White);
-			_spriteBatch.DrawString(sansation_bold_25, GameClock.GetTimeOfDayString() , new Vector2(645, 15), Color.Black);
-			man.Draw(_spriteBatch);
-			trash.Draw(_spriteBatch);
+			_spriteBatch.DrawString(sansation_20, ("Money: $" + Statistics.Money.ToString("0.00")), new Vector2(20, 15), Color.White);
+			_spriteBatch.DrawString(sansation_20, ("Total Oxygen: " + Statistics.TotalOxygenProduced.ToString("0.00")) + "kg", new Vector2(20, 45), Color.White);
+			_spriteBatch.DrawString(sansation_20, ("Oxygen/Year: " + Statistics.OxygenPerYear.ToString("0.00")) + "kg", new Vector2(20, 65), Color.White);
+
+			_spriteBatch.DrawString(sansation_bold_25, GameClock.GetTimeOfDayString() , new Vector2(675, 15), Color.Black);
+			
 
 			foreach (InfoBox t in InfoBox.TheInfoBoxes)
 			{
-				//spriteBatch.DrawString(font, text, position + new Vector2(1 * scale, 1 * scale), backColor, 0, origin, scale, SpriteEffects.None, 1f);
-				//spriteBatch.DrawString(font, text, position + new Vector2(-1 * scale, 1 * scale), backColor, 0, origin, scale, SpriteEffects.None, 1f);
-
-
-				//_spriteBatch.DrawString(sansation_22, t.Message, new Vector2(t.Location.X + 1, t.Location.Y + 1), Color.Black);
-				//_spriteBatch.DrawString(sansation_22, t.Message, new Vector2(t.Location.X - 1, t.Location.Y - 1), Color.Black);
-				//_spriteBatch.DrawString(sansation_22, t.Message, t.Location, Color.White);
 				DrawStroke(sansation_bold_23, t.Message, t.Location);
-
 			}
 
 			_spriteBatch.End();
@@ -301,6 +301,25 @@ namespace GlobalGoalGame
 				);
 
 				sansation_16 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
+			}
+			// ### Sansation Regular 20
+			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))
+			{
+				// TODO: use this.Content to load your game content here
+				fontBakeResult = TtfFontBaker.Bake(stream,
+					20,
+					FontBitmapWidth,
+					FontBitmapHeight,
+					new[]
+					{
+					CharacterRange.BasicLatin,
+					CharacterRange.Latin1Supplement,
+					CharacterRange.LatinExtendedA,
+					CharacterRange.Cyrillic
+					}
+				);
+
+				sansation_20 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
 			// ### Sansation Regular 22
 			using (var stream = File.OpenRead("Fonts/Sansation_Regular.ttf"))

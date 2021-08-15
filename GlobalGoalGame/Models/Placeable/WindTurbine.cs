@@ -7,12 +7,12 @@ using System.Text;
 
 namespace GlobalGoalGame.Models.Placeable
 {
-	class WindTurbine : Monetizable
+	class WindTurbine : Energizable
 	{
 		public const int TEXTURE_WIDTH = 75;
 		public const int TEXTURE_HEIGHT = 100;
 
-		public float MoneyPerHour { get; set; }
+		public float MoneyPerMinute { get; set; }
 		public int Uuid { get; set; }
 		public Vector2 BadLocation { get; set; }
 		public Vector2 Location { get; set; }
@@ -40,7 +40,7 @@ namespace GlobalGoalGame.Models.Placeable
 		{
 			Rand = new Random();
 			Uuid = Rand.Next(1, 50000);
-			MoneyPerHour = 0.03f;
+			MoneyPerMinute = 0.03f;
 			Texture = texture;
 			BadLocation = location;
 			Location = new Vector2(location.X + (TEXTURE_WIDTH / 2), location.Y + (TEXTURE_HEIGHT / 2));
@@ -71,7 +71,7 @@ namespace GlobalGoalGame.Models.Placeable
 					{
 						if (!s.Draggable)
 						{
-							Statistics.Money += s.MoneyPerHour;
+							Statistics.Money += s.MoneyPerMinute;
 
 						}
 
