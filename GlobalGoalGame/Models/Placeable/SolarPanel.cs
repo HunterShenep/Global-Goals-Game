@@ -69,7 +69,8 @@ namespace GlobalGoalGame.Models
 						if (!s.Draggable)
 						{
 							Statistics.Money += s.MoneyPerMinute;
-							
+							Statistics.TotalKilowattsProducted += s.KWPerMinute;
+
 							//Debug.WriteLine("Paying for: " + s.Uuid);
 						}
 

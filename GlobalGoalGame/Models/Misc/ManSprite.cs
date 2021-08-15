@@ -1,4 +1,5 @@
 ﻿using GlobalGoalGame.Models.Misc;
+using GlobalGoalGame.Models.Misc.Text;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -178,6 +179,7 @@ namespace GlobalGoalGame
 					if(distanceFromTrash < 30f)
 					{
 						Statistics.Money += TrashSprite.TheTrash[i].Value;
+						Marquee.CreateMarquee(TrashSprite.TheTrash[i].Location, "+$" + TrashSprite.TheTrash[i].Value, Color.White, Color.Black);
 						//TrashSprite.TheTrash[i].Exists = false;
 						TrashSprite.TheTrash.RemoveAt(i);
 

@@ -19,6 +19,8 @@ namespace GlobalGoalGame.Models.Placeable
 		public bool Draggable { get; set; }
 		public Random Rand { get; set; }
 
+		public float KWPerMinute { get; set; }
+
 		private int AnimationCounter;
 
 		public Texture2D Texture { get; set; }
@@ -46,6 +48,7 @@ namespace GlobalGoalGame.Models.Placeable
 			Location = new Vector2(location.X + (TEXTURE_WIDTH / 2), location.Y + (TEXTURE_HEIGHT / 2));
 			Draggable = draggable;
 			AnimationCounter = 0;
+			KWPerMinute = 2f;
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
@@ -72,7 +75,7 @@ namespace GlobalGoalGame.Models.Placeable
 						if (!s.Draggable)
 						{
 							Statistics.Money += s.MoneyPerMinute;
-
+							Statistics.TotalKilowattsProducted += s.KWPerMinute;
 						}
 
 					}

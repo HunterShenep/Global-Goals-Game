@@ -63,7 +63,7 @@ namespace GlobalGoalGame
 
 			Value = (float)(rand.Next(1, 300) * 0.01);
 
-			int x = rand.Next(150, (Game1.GameWidth - 200));
+			int x = rand.Next(190, (Game1.GameWidth - 200));
 			int y = rand.Next(50, (Game1.GameHeight - 50));
 
 			ID = rand.Next(1, 60000) + rand.Next(1, 23452);

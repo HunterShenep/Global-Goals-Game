@@ -1,6 +1,7 @@
 ﻿using GlobalGoalGame.Models;
 using GlobalGoalGame.Models.Button;
 using GlobalGoalGame.Models.Misc;
+using GlobalGoalGame.Models.Misc.Text;
 using GlobalGoalGame.Models.Placeable;
 using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
@@ -168,6 +169,7 @@ namespace GlobalGoalGame
 				Exit();
 
 			GameClock.Tick();
+			Marquee.Tick();
 
 			myCounterStuff();
 			Statistics.CalculateStatistics();
@@ -205,11 +207,14 @@ namespace GlobalGoalGame
 
 			_spriteBatch.Draw(background_sprite, new Vector2(0, 0), Color.White);
 
+			trash.Draw(_spriteBatch);
+
+
 			_spriteBatch.Draw(topLeftPanel, new Vector2(5, 5), Color.White);
 
 			_spriteBatch.Draw(componentsPanel, new Vector2(1230, 10), Color.White);
 
-			trash.Draw(_spriteBatch);
+			
 			man.Draw(_spriteBatch);
 
 
@@ -235,15 +240,24 @@ namespace GlobalGoalGame
 
 			
 			_spriteBatch.DrawString(sansation_20, ("Money: $" + Statistics.Money.ToString("0.00")), new Vector2(20, 15), Color.White);
+			//							30 pixel gap in between sections, 20 between lines
 			_spriteBatch.DrawString(sansation_20, ("Total Oxygen: " + Statistics.TotalOxygenProduced.ToString("0.00")) + "kg", new Vector2(20, 45), Color.White);
 			_spriteBatch.DrawString(sansation_20, ("Oxygen/Year: " + Statistics.OxygenPerYear.ToString("0.00")) + "kg", new Vector2(20, 65), Color.White);
+			
+			_spriteBatch.DrawString(sansation_20, ("Total Energy: " + Statistics.TotalKilowattsProducted.ToString("0.00")) + "kw", new Vector2(20, 95), Color.White);
+			_spriteBatch.DrawString(sansation_20, ("Energy/Year: " + Statistics.KilowattsPerYear.ToString("0.00")) + "kw", new Vector2(20, 115), Color.White);
 
 			_spriteBatch.DrawString(sansation_bold_25, GameClock.GetTimeOfDayString() , new Vector2(675, 15), Color.Black);
 			
 
 			foreach (InfoBox t in InfoBox.TheInfoBoxes)
 			{
-				DrawStroke(sansation_bold_23, t.Message, t.Location);
+				TextUtilities.DrawStroke(_spriteBatch,sansation_bold_23, t.Message, t.Location, Color.White, Color.Black);
+			}
+
+			foreach(Marquee m in Marquee.TheMarquees)
+			{
+				TextUtilities.DrawStroke(_spriteBatch, sansation_bold_23, m.Text, m.Location, m.TextColor, m.StrokeColor);
 			}
 
 			_spriteBatch.End();
@@ -253,12 +267,7 @@ namespace GlobalGoalGame
 			base.Draw(gameTime);
 		}
 
-		public void DrawStroke(SpriteFont font, string message, Vector2 location)
-		{
-			_spriteBatch.DrawString(font, message, new Vector2(location.X + 1, location.Y + 1), Color.Black);
-			_spriteBatch.DrawString(font, message, new Vector2(location.X - 1, location.Y - 1), Color.Black);
-			_spriteBatch.DrawString(font, message, location, Color.White);
-		}
+
 
 		private void myCounterStuff()
 		{

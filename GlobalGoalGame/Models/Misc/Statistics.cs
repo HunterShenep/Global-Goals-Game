@@ -31,10 +31,12 @@ namespace GlobalGoalGame.Models.Misc
 				OxygenPerYear = (((OxygenPerMinute * 60) * 24) * 365);
 
 				float KilowattsPerMinute = 0f;
+
 				foreach(SolarPanel s in SolarPanel.TheSolarPanels)
 				{
 					KilowattsPerMinute += s.KWPerMinute;
 				}
+
 				KilowattsPerYear = (((KilowattsPerMinute * 60) * 24) * 365);
 			}
 
