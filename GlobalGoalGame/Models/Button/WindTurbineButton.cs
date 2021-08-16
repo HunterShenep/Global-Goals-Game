@@ -3,6 +3,7 @@ using GlobalGoalGame.Models.Placeable;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -49,6 +50,8 @@ namespace GlobalGoalGame.Models.Button
 						{
 							s.Draggable = false;
 							clickCount = 0;
+							MediaPlayer.Play(Game1.OtherNoise);
+							s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT);
 						}
 					}
 					mReleased = false;

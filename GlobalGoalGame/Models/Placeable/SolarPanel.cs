@@ -19,11 +19,13 @@ namespace GlobalGoalGame.Models
 		public Texture2D Texture { get; }
 		
 		public bool Draggable { get; set; }
+		public bool Button { get; set; }
 		public Vector2 Location { get; set; }
 		public Vector2 BadLocation { get; set; }
 
 		public float KWPerMinute { get; set; }
 
+		public HelpBox HelpBox { get; set; }	
 		//STATIC
 		public static float Cost { get; set; }
 		public static List<Texture2D> Textures { get; set; }
@@ -36,12 +38,14 @@ namespace GlobalGoalGame.Models
 
 		public SolarPanel()
 		{
+			Button = true;
 			Textures = new List<Texture2D>();
 			Cost = 50;
 		}
 
 		public SolarPanel(Texture2D texture, Vector2 location, bool draggable)
 		{
+			Button = false;
 			Rand = new Random();
 			Uuid = Rand.Next(1, 50000);
 			MoneyPerMinute = 0.005f;
@@ -50,6 +54,10 @@ namespace GlobalGoalGame.Models
 			Location = new Vector2(location.X + (TEXTURE_WIDTH/2), location.Y + (TEXTURE_HEIGHT/2));
 			Draggable = draggable;
 			KWPerMinute = 0.0041f;
+
+			HelpBox = new HelpBox(new RectangleZone(BadLocation, TEXTURE_WIDTH, TEXTURE_HEIGHT), "Solar Panel", 1, false, "This is a solar" +
+				" panel. It is currently producing " + KWPerMinute + "Kw per minute and generating $" + MoneyPerMinute.ToString("0.000") + " per minute.");
+
 		}
 
 

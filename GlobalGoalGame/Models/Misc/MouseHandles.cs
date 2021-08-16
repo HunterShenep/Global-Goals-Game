@@ -1,5 +1,7 @@
-﻿using GlobalGoalGame.Models.Button;
+﻿using GlobalGoalGame.Models;
+using GlobalGoalGame.Models.Button;
 using GlobalGoalGame.Models.Misc;
+using GlobalGoalGame.Models.Placeable;
 using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
@@ -19,7 +21,7 @@ namespace GlobalGoalGame
 		{
 			
 
-			//BUILD MENU BUTTON HANDLING LOGIC
+			//MOUSE CLICK logic handling
 			if (theState.LeftButton == ButtonState.Pressed && mouseReleased == true)
 			{
 				//COVERS OAKTREEBUTTON/SOLAR/ETC
@@ -32,8 +34,94 @@ namespace GlobalGoalGame
 					}
 				}
 
-				//HelpBoxs
-				foreach(HelpBox hb in HelpBox.TheHelpBoxes)
+				//TrashSprite HelpBoxes
+				foreach(TrashSprite t in TrashSprite.TheTrash)
+				{
+					if (!t.HelpBox.Visible)
+					{
+						if (t.HelpBox.SpriteZone.IsInsideOfZone(theState))
+						{
+							t.HelpBox.Visible = true;
+						}
+					}
+					else
+					{
+						if (t.HelpBox.OKButton.IsInsideOfZone(theState))
+						{
+							t.HelpBox.Visible = false;
+						}
+					}
+				}
+
+				//OakTree HelpBoxes
+				foreach (OakTree t in OakTree.TheOakTrees)
+				{
+					if (!t.HelpBox.Visible)
+					{
+						if (t.HelpBox.SpriteZone.IsInsideOfZone(theState))
+						{
+							t.HelpBox.Visible = true;
+						}
+					}
+					else
+					{
+						if (t.HelpBox.OKButton.IsInsideOfZone(theState))
+						{
+							t.HelpBox.Visible = false;
+						}
+					}
+				}
+
+				//SolarPanel HelpBoxes
+				foreach (SolarPanel t in SolarPanel.TheSolarPanels)
+				{
+					Console.WriteLine("a");
+					if (!t.Button && !t.Draggable)
+					{
+						if (!t.HelpBox.Visible)
+						{
+							if (t.HelpBox.SpriteZone.IsInsideOfZone(theState))
+							{
+								t.HelpBox.Visible = true;
+							}
+						}
+						else
+						{
+							if (t.HelpBox.OKButton.IsInsideOfZone(theState))
+							{
+								t.HelpBox.Visible = false;
+							}
+						}
+					}
+
+				}
+
+				//Wind Turbine HelpBoxes
+				foreach (WindTurbine t in WindTurbine.TheWindTurbines)
+				{
+					Console.WriteLine("a");
+					if (!t.Button && !t.Draggable)
+					{
+						if (!t.HelpBox.Visible)
+						{
+							if (t.HelpBox.SpriteZone.IsInsideOfZone(theState))
+							{
+								t.HelpBox.Visible = true;
+							}
+						}
+						else
+						{
+							if (t.HelpBox.OKButton.IsInsideOfZone(theState))
+							{
+								t.HelpBox.Visible = false;
+							}
+						}
+					}
+
+				}
+
+				//Beggining helpbox
+				foreach (HelpBox hb in HelpBox.TheHelpBoxes)
 				{
 					//If the mouse is inside of the OK button's zone.
 					if (hb.Visible)

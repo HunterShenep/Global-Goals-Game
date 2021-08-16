@@ -195,6 +195,12 @@
 /processorParam:TextureFormat=Color
 /build:idle.png
 
+#begin ka-ching.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:ka-ching.mp3
+
 #begin mill1.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -393,6 +399,12 @@
 /processorParam:PremultiplyAlpha=True
 /processorParam:TextureFormat=Compressed
 /build:statsFont.spritefont
+
+#begin teleport.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:teleport.mp3
 
 #begin walk1.png
 /importer:TextureImporter

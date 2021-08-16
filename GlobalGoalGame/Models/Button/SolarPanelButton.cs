@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -35,6 +36,7 @@ namespace GlobalGoalGame.Models.Button
 						
 						s.BadLocation = new Vector2(mState.X, mState.Y);
 						s.Location = new Vector2(s.BadLocation.X + (SolarPanel.TEXTURE_WIDTH/2), s.BadLocation.Y + (SolarPanel.TEXTURE_HEIGHT/2));
+
 					}
 				}
 
@@ -50,6 +52,8 @@ namespace GlobalGoalGame.Models.Button
 						{
 							s.Draggable = false;
 							clickCount = 0;
+							MediaPlayer.Play(Game1.OtherNoise);
+							s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT);
 						}
 					}
 					mReleased = false;

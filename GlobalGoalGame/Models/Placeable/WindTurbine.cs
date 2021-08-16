@@ -18,12 +18,15 @@ namespace GlobalGoalGame.Models.Placeable
 		public Vector2 Location { get; set; }
 		public bool Draggable { get; set; }
 		public Random Rand { get; set; }
+		public bool Button { get; set; }
 
 		public float KWPerMinute { get; set; }
 
 		private int AnimationCounter;
 
 		public Texture2D Texture { get; set; }
+
+		public HelpBox HelpBox { get; set; }
 
 
 		//STATIC
@@ -36,6 +39,7 @@ namespace GlobalGoalGame.Models.Placeable
 		{
 			Textures = new List<Texture2D>();
 			Cost = 1000;
+			Button = true;
 		}
 
 		public WindTurbine(Texture2D texture, Vector2 location, bool draggable)
@@ -49,6 +53,9 @@ namespace GlobalGoalGame.Models.Placeable
 			Draggable = draggable;
 			AnimationCounter = 0;
 			KWPerMinute = 2f;
+			HelpBox = new HelpBox(new RectangleZone(BadLocation, TEXTURE_WIDTH, TEXTURE_HEIGHT), "Wind Turbine", 1, false, "This is a wind" +
+	" turbine. It is currently producing " + KWPerMinute + "Kw per minute and generating $" + MoneyPerMinute.ToString("0.000") + " per minute.");
+			Button = false;
 		}
 
 		public void Draw(SpriteBatch spriteBatch)

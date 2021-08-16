@@ -36,6 +36,8 @@ namespace GlobalGoalGame.Models.Trees
 
 		public int TimeUntilNextFruit { get; set; }
 
+		public HelpBox HelpBox { get; set; }
+
 
 		//STATIC
 
@@ -71,6 +73,16 @@ namespace GlobalGoalGame.Models.Trees
 			Fruit = false;
 			TimeSinceLastFruit = 0;
 			TimeUntilNextFruit = 0;
+
+			string message = "This apple tree is " +
+				"currently providing " + OxygenPerSecond + "kg of air per minute.";
+
+			if (Fruit)
+			{
+				message += " This tree can be harvested for fruit. Approach it and press space.";
+			}
+
+			HelpBox = new HelpBox(new RectangleZone(BadLocation, TEXTURE_WIDTH, TEXTURE_HEIGHT), "Apple Tree", 1, false, message);
 		}
 
 		public void Draw(SpriteBatch spriteBatch)
@@ -97,10 +109,6 @@ namespace GlobalGoalGame.Models.Trees
 							Statistics.TotalOxygenProduced += ot.OxygenPerSecond;
 							ot.TimeAlive++;
 							TreeEvolve(ot);
-
-							//Debug.WriteLine(ot.ToString());
-
-
 
 							if (ot.MonetizeableTree)
 							{

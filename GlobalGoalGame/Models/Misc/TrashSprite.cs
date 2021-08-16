@@ -17,7 +17,7 @@ namespace GlobalGoalGame
 		public float Value { get; }
 		public int ID { get; set; }
 		
-		public RectangleZone RectangleZone { get; set; }
+		public HelpBox HelpBox { get; set; }
 
 		public bool Exists { get; set; }
 
@@ -72,7 +72,11 @@ namespace GlobalGoalGame
 			BadLocation = new Vector2(x, y);
 			Location = new Vector2(BadLocation.X + 15, BadLocation.Y + 15);
 
-			this.RectangleZone = new RectangleZone(Location, 50, 50);
+
+			RectangleZone zone = new RectangleZone(BadLocation, 50, 50);
+
+			HelpBox = new HelpBox(zone, Name, 1, false, "This is a piece of garbage you found on your land. It is worth $" + Value.ToString("0.00") + " if " +
+				"cleaned up. ");
 
 			Exists = true;
 		}

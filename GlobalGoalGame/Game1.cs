@@ -7,6 +7,7 @@ using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using SpriteFontPlus;
 using System;
 using System.Collections.Generic;
@@ -43,7 +44,9 @@ namespace GlobalGoalGame
 		private int OneSecCounter = 0;
 		public static bool OneSecPassed = false;
 		public static bool HalfSecondPassed = false;
-		
+
+		public static Song ChaChing;
+		public static Song OtherNoise;
 
 
 
@@ -105,7 +108,10 @@ namespace GlobalGoalGame
 			HelpBox.PopulateHelpBoxes();
 
 			statsFont = Content.Load<SpriteFont>("statsFont");
-			
+			//Sounds
+			ChaChing = Content.Load<Song>("ka-ching");
+			OtherNoise = Content.Load<Song>("teleport");
+
 
 			//CUSTOM FONT STUFF ############################
 			createFonts();

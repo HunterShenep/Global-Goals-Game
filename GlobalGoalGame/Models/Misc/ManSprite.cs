@@ -4,6 +4,7 @@ using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -172,6 +173,7 @@ namespace GlobalGoalGame
 					if(distanceFromTrash < 30f)
 					{
 						Statistics.Money += TrashSprite.TheTrash[i].Value;
+						MediaPlayer.Play(Game1.ChaChing);
 						Marquee.CreateMarquee(TrashSprite.TheTrash[i].Location, "+$" + TrashSprite.TheTrash[i].Value.ToString("0.00"), Color.White, Color.Black);
 						//TrashSprite.TheTrash[i].Exists = false;
 						TrashSprite.TheTrash.RemoveAt(i);
@@ -188,6 +190,7 @@ namespace GlobalGoalGame
 					{
 						if (ot.Fruit)
 						{
+							MediaPlayer.Play(Game1.ChaChing);
 							Statistics.Money += ot.MoneyPerEvent;
 							ot.Fruit = false;
 							ot.TimeSinceLastFruit = 0;
