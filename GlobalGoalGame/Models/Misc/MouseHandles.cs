@@ -183,7 +183,7 @@ namespace GlobalGoalGame
 				//Placeable / Plantable / Monetizeable 
 				foreach(OakTree ot in OakTree.TheOakTrees)
 				{
-					mouseTargetDistInfoBox = Vector2.Distance(new Vector2(theState.X, theState.Y), ot.Location);
+					mouseTargetDistInfoBox = Vector2.Distance(new Vector2(theState.X, theState.Y), ot.BadLocation);
 					if (mouseTargetDistInfoBox < 25)
 					{
 						Vector2 newLocation = new Vector2(ot.Location.X - 100, ot.Location.Y);

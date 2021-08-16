@@ -48,7 +48,7 @@ namespace GlobalGoalGame.Models.Trees
 		public static List<Texture2D> Textures = new List<Texture2D>();
 
 		//More = longer
-		private static int growthMultiplier = 1;
+		private static int growthMultiplier = 20;
 
 		public OakTree()
 		{

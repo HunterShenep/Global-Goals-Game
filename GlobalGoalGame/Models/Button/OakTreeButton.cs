@@ -44,15 +44,22 @@ namespace GlobalGoalGame.Models.Button
 				if (mState.LeftButton == ButtonState.Pressed && mReleased == true)
 				{
 					clickCount++;
-					foreach (OakTree s in OakTree.TheOakTrees)
+					if (clickCount > 1)
 					{
-						if (s.Draggable && clickCount > 1)
+						foreach (OakTree s in OakTree.TheOakTrees)
 						{
-							s.Draggable = false;
-							s.Texture = OakTree.Textures[0];
-							clickCount = 0;
-							MediaPlayer.Play(Game1.OtherNoise);
-							s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT);
+							if (s.Draggable)
+							{
+								s.Draggable = false;
+								s.Texture = OakTree.Textures[0];
+								clickCount = 0;
+								MediaPlayer.Play(Game1.OtherNoise);
+								s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT);
+							}
+							else
+							{
+								clickCount = 0;
+							}
 						}
 					}
 					mReleased = false;
