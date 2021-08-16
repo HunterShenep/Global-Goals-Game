@@ -32,6 +32,16 @@ namespace GlobalGoalGame
 					}
 				}
 
+				//HelpBoxs
+				foreach(HelpBox hb in HelpBox.TheHelpBoxes)
+				{
+					//If the mouse is inside of the OK button's zone.
+					if (hb.OKButton.IsInsideOfZone(theState))
+					{
+						hb.Visible = false;
+					}
+				}
+
 				mouseReleased = false;
 			}
 
@@ -77,6 +87,8 @@ namespace GlobalGoalGame
 						InfoBox.Create("Oxygen Per Second\n             " + ot.OxygenPerSecond + " kg\n", newLocation, ot.Uuid);
 					}
 				}
+
+				
 			}
 
 		}

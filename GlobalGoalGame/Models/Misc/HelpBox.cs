@@ -1,0 +1,143 @@
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Text;
+
+namespace GlobalGoalGame.Models.Misc
+{
+	class HelpBox
+	{
+		public string Name { get; }
+		public RectangleZone OKButton { get; }
+
+		public Vector2 Location { get; }
+
+		public string Message { get; }
+
+		public List<string> MessageLines { get; set; }
+
+		public int Size { get; }
+
+		public bool Visible { get; set; }
+
+
+
+		//Static
+		public static List<Texture2D> Textures = new List<Texture2D>();
+		public static List<HelpBox> TheHelpBoxes  = new List<HelpBox>();
+
+		//const
+		private const int SIZE_1_MAX_LINE_CHAR = 50;
+
+
+		public HelpBox(string name, int size, bool visible, string message)
+		{
+			Name = name;
+			//Zone = zone;
+			Size = size;
+			Visible = visible;
+			Message = message;
+			if(Size == 1)
+			{
+				Location = new Vector2(460, 150);
+
+				OKButton = new RectangleZone(new Vector2(900, 500), 50, 30);
+
+			}
+
+			MessageLines = splitText(Message);
+		}
+
+		private List<string> splitText(string message)
+		{
+			List<string> lines = new List<string>();
+
+			int iterations = message.Length / SIZE_1_MAX_LINE_CHAR;
+
+			if(message.Length % SIZE_1_MAX_LINE_CHAR > 0)
+			{
+				iterations++;
+			}
+
+			for(int i = 1; i <= iterations; i++)
+			{
+				if(i == 1)
+				{
+					lines.Add(message.Substring(0, SIZE_1_MAX_LINE_CHAR));
+				}
+				else if (i == iterations)
+				{
+					lines.Add(message.Substring((i-1) * SIZE_1_MAX_LINE_CHAR, message.Length % SIZE_1_MAX_LINE_CHAR));
+				}
+				else
+				{
+					int a = (i-1) * SIZE_1_MAX_LINE_CHAR;
+					int b = SIZE_1_MAX_LINE_CHAR;
+
+					lines.Add(message.Substring(a , b));
+				}
+				
+			}
+			
+			foreach(string s in lines)
+			{
+				s.Trim();
+			}
+			return lines;
+		}
+
+		public static void PopulateHelpBoxes()
+		{
+			TheHelpBoxes.Add(new HelpBox("Welcome", 1, true, "Welcome to the Global Goals Game. This game was created as a project for my final " +
+				"at Western Technical College. " +
+				"This game is focused on creating awareness of climate action(#13), affordable and clean energy (#7), and economic growth (#8). " +
+				""));
+
+			TheHelpBoxes.Add(new HelpBox("Controls", 1, false, "To play, used Keys (W,A,S,D) to move. Use key (Spacebar) to " +
+				"pick up trash and interact with your placeable objects. Hovering your mouse over objects will yield basic data. Press H while" +
+				" hovering over an object to get more information."));
+			TheHelpBoxes.Add(new HelpBox("Money", 1, false, "Money is used for purchasing tree plants, solar panels, and wind turbines. You " +
+				"receive money when trash is picked up, trees' fruit is collected, and automatically from Solar Panels / Wind Mills."));
+		}
+
+
+		public static void Update(SpriteBatch _spriteBatch, SpriteFont font)
+		{
+			foreach (HelpBox hb in HelpBox.TheHelpBoxes)
+			{
+				if (hb.Visible)
+				{
+					//Draw panel
+					_spriteBatch.Draw(HelpBox.Textures[hb.Size - 1], hb.Location, Color.White);
+
+					int lineHeight = 30;
+
+					//Write lines of text in the panel
+					for (int i = 0; i < hb.MessageLines.Count; i++)
+					{
+						Vector2 lineLocation = new Vector2();
+
+						if (i == 0)
+						{
+							lineLocation = new Vector2(hb.Location.X + 30, hb.Location.Y + 50 + (lineHeight * i));
+						}
+						else
+						{
+							lineLocation = new Vector2(hb.Location.X + 30, hb.Location.Y + (lineHeight * i) + 50);
+						}
+
+
+
+						_spriteBatch.DrawString(font, hb.MessageLines[i], lineLocation, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
+
+					}
+
+					_spriteBatch.DrawString(font, "OK", hb.OKButton.StartPoint, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
+				}
+
+			}
+		}
+	}
+}

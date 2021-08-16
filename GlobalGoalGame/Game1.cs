@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Input;
 using SpriteFontPlus;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 
 namespace GlobalGoalGame
@@ -29,17 +30,20 @@ namespace GlobalGoalGame
 		private SolarPanel solarPanel;
 		private WindTurbine windTurbine;
 		private OakTree oakTree;
+		public InfoBox InfoBox;
+
 		Texture2D background_sprite;
 		Texture2D topLeftPanel;
 		Texture2D componentsPanel;
 		MouseHandles mHandler;
+
 		public static String update;
 		public static List<Texture2D> TrashTextures = new List<Texture2D>();
 		Random rand = new Random();
 		private int OneSecCounter = 0;
 		public static bool OneSecPassed = false;
 		public static bool HalfSecondPassed = false;
-		public InfoBox InfoBox;
+		
 
 
 
@@ -97,9 +101,11 @@ namespace GlobalGoalGame
 
 			topLeftPanel = Content.Load<Texture2D>("panel-for-live-stats");
 			componentsPanel = Content.Load<Texture2D>("panel-for-components");
+			HelpBox.Textures.Add(Content.Load<Texture2D>("panel-for-help-box"));
+			HelpBox.PopulateHelpBoxes();
 
 			statsFont = Content.Load<SpriteFont>("statsFont");
-
+			
 
 			//CUSTOM FONT STUFF ############################
 			createFonts();
@@ -170,6 +176,7 @@ namespace GlobalGoalGame
 
 			GameClock.Tick();
 			Marquee.Tick();
+			
 
 			myCounterStuff();
 			Statistics.CalculateStatistics();
@@ -259,6 +266,9 @@ namespace GlobalGoalGame
 			{
 				TextUtilities.DrawStroke(_spriteBatch, sansation_bold_23, m.Text, m.Location, m.TextColor, m.StrokeColor);
 			}
+
+			HelpBox.Update(_spriteBatch, sansation_20);
+
 
 			_spriteBatch.End();
 
@@ -428,6 +438,12 @@ namespace GlobalGoalGame
 
 				sansation_bold_22 = fontBakeResult.CreateSpriteFont(GraphicsDevice);
 			}
+		}
+
+		public static void IsTouchingOtherSprites(Texture2D texture, Vector2 location)
+		{
+
+
 		}
 
 

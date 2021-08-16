@@ -1,4 +1,5 @@
-﻿using Microsoft.Xna.Framework;
+﻿using GlobalGoalGame.Models.Misc;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,13 @@ namespace GlobalGoalGame
 	class TrashSprite
 	{
 		public Texture2D Texture { get; }
-		
 		public string Name { get; }
 		public Vector2 BadLocation { get; }
 		public Vector2 Location { get; }
 		public float Value { get; }
-
 		public int ID { get; set; }
+		
+		public RectangleZone RectangleZone { get; set; }
 
 		public bool Exists { get; set; }
 
@@ -71,6 +72,7 @@ namespace GlobalGoalGame
 			BadLocation = new Vector2(x, y);
 			Location = new Vector2(BadLocation.X + 15, BadLocation.Y + 15);
 
+			this.RectangleZone = new RectangleZone(Location, 50, 50);
 
 			Exists = true;
 		}
@@ -93,15 +95,18 @@ namespace GlobalGoalGame
 		public void MakeTrash(List<Texture2D> theTextures, int min, int max)
 		{
 
+
 			int howMany = rand.Next(min, max);
 			for (int i = 0; i < howMany; i++)
 			{
 				TrashSprite trash = new TrashSprite(theTextures);
+
 				TheTrash.Add(trash);
-				//_spriteBatch.Draw(trashTextures[rand.Next(0, trashTextures.Count)], new Vector2(x, y), Color.White);
+
 			}
 
-			Console.WriteLine("Making trash");
+
+				Console.WriteLine("Making trash");
 		}
 
 		public void TimedTrashIncrease()

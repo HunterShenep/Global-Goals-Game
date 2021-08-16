@@ -351,6 +351,18 @@
 /processorParam:TextureFormat=Color
 /build:panel-for-components.png
 
+#begin panel-for-help-box.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:panel-for-help-box.png
+
 #begin panel-for-live-stats.png
 /importer:TextureImporter
 /processor:TextureProcessor

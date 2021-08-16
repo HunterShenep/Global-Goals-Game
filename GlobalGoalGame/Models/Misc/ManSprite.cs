@@ -1,5 +1,6 @@
 ﻿using GlobalGoalGame.Models.Misc;
 using GlobalGoalGame.Models.Misc.Text;
+using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -21,7 +22,7 @@ namespace GlobalGoalGame
 
 		private int walkTimer = 0;
 
-		private bool fReleased = true;
+		private bool spaceReleased = true;
 		public ManSprite(List<Texture2D> theTextures)
 		{
 			textures = theTextures;
@@ -157,39 +158,51 @@ namespace GlobalGoalGame
 		{
 			//SpriteEffects s = SpriteEffects.FlipHorizontally;
 
-			//**** FOR LATER
-			float gTime = (float) gameTime.TotalGameTime.Ticks;
-			if(gTime % 20 == 0)
-			{
-
-			}
-			;
-			//**** FOR LATER ^^^^
 
 
-			//F key -- CLEAN UP TRASH
-			if(Keyboard.GetState().IsKeyDown(Keys.Space) && fReleased == true)
+			if(Keyboard.GetState().IsKeyDown(Keys.Space) && spaceReleased == true)
 			{
 				float distanceFromTrash = 0f;
 				
 
+				//Check if close to trash
 				for (int i = 0; i < TrashSprite.TheTrash.Count; i++)
 				{
 					distanceFromTrash = Vector2.Distance(TrashSprite.TheTrash[i].Location, Location);
 					if(distanceFromTrash < 30f)
 					{
 						Statistics.Money += TrashSprite.TheTrash[i].Value;
-						Marquee.CreateMarquee(TrashSprite.TheTrash[i].Location, "+$" + TrashSprite.TheTrash[i].Value, Color.White, Color.Black);
+						Marquee.CreateMarquee(TrashSprite.TheTrash[i].Location, "+$" + TrashSprite.TheTrash[i].Value.ToString("0.00"), Color.White, Color.Black);
 						//TrashSprite.TheTrash[i].Exists = false;
 						TrashSprite.TheTrash.RemoveAt(i);
 
 					}
 				}
-				fReleased = false;
+				float distanceFromTree = 0f;
+
+				//Check if close to trees
+				foreach(OakTree ot in OakTree.TheOakTrees)
+				{
+					distanceFromTree = Vector2.Distance(ot.Location, Location);
+					if(distanceFromTree < 40f)
+					{
+						if (ot.Fruit)
+						{
+							Statistics.Money += ot.MoneyPerEvent;
+							ot.Fruit = false;
+							ot.TimeSinceLastFruit = 0;
+							ot.Texture = OakTree.Textures[4];
+							Marquee.CreateMarquee(ot.Location, "+$" + ot.MoneyPerEvent.ToString("0.00"), Color.Gold, Color.Black);
+						}
+
+					}
+				}
+
+				spaceReleased = false;
 			}
 			if (Keyboard.GetState().IsKeyUp(Keys.Space))
 			{
-				fReleased = true;
+				spaceReleased = true;
 			}
 
 			DetermineWalk(Keyboard.GetState());

@@ -73,3 +73,4 @@ C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debu
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\StbImageSharp.dll
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\StbTrueTypeSharp.dll
 C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\oak6.xnb
+C:\Users\Hunter\source\repos\MONOGAME\GGG\GlobalGoalGame\GlobalGoalGame\bin\Debug\netcoreapp3.1\Content\panel-for-help-box.xnb

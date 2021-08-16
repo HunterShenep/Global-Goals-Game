@@ -100,6 +100,8 @@ namespace GlobalGoalGame.Models.Trees
 
 							//Debug.WriteLine(ot.ToString());
 
+
+
 							if (ot.MonetizeableTree)
 							{
 								if(ot.TimeSinceLastFruit == ot.TimeUntilNextFruit)
