@@ -36,10 +36,25 @@ namespace GlobalGoalGame
 				foreach(HelpBox hb in HelpBox.TheHelpBoxes)
 				{
 					//If the mouse is inside of the OK button's zone.
-					if (hb.OKButton.IsInsideOfZone(theState))
+					if (hb.Visible)
 					{
-						hb.Visible = false;
+						if (hb.OKButton.IsInsideOfZone(theState))
+						{
+
+							if (hb.CheckForFirstTime(hb))
+							{
+								break;
+							}
+							else
+							{
+
+								hb.Visible = false;
+							}
+
+
+						}
 					}
+
 				}
 
 				mouseReleased = false;

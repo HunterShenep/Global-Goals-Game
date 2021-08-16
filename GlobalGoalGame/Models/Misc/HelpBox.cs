@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Text;
 
 namespace GlobalGoalGame.Models.Misc
@@ -100,6 +101,8 @@ namespace GlobalGoalGame.Models.Misc
 				" hovering over an object to get more information."));
 			TheHelpBoxes.Add(new HelpBox("Money", 1, false, "Money is used for purchasing tree plants, solar panels, and wind turbines. You " +
 				"receive money when trash is picked up, trees' fruit is collected, and automatically from Solar Panels / Wind Mills."));
+			TheHelpBoxes.Add(new HelpBox("Placeable Objects", 1, false, "Towards the top right of the screen, you should see a panel with placeable " +
+				"objects. Hover your mouse over each object to see its price. Click on the object and then where you would like to place it."));
 		}
 
 
@@ -111,6 +114,7 @@ namespace GlobalGoalGame.Models.Misc
 				{
 					//Draw panel
 					_spriteBatch.Draw(HelpBox.Textures[hb.Size - 1], hb.Location, Color.White);
+					_spriteBatch.DrawString(font, hb.Name, new Vector2(670 ,170), Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
 
 					int lineHeight = 30;
 
@@ -137,6 +141,42 @@ namespace GlobalGoalGame.Models.Misc
 					_spriteBatch.DrawString(font, "OK", hb.OKButton.StartPoint, Color.White, 0.0f, Vector2.Zero, 1.0f, SpriteEffects.None, 0.0f);
 				}
 
+			}
+		}
+
+		public bool CheckForFirstTime(HelpBox hb)
+		{
+			if (hb.Name.Equals("Welcome"))
+			{
+				hb.Visible = false;
+				IEnumerable<HelpBox> helpboxes = TheHelpBoxes;
+
+				List<HelpBox> temp = helpboxes.Where(x => x.Name == "Controls").ToList();
+				temp[0].Visible = true;
+				return true;
+
+			}
+			else if (hb.Name.Equals("Controls"))
+			{
+				hb.Visible = false;
+				IEnumerable<HelpBox> helpboxes = TheHelpBoxes;
+
+				List<HelpBox> temp = helpboxes.Where(x => x.Name == "Money").ToList();
+				temp[0].Visible = true;
+				return true;
+			}
+			else if (hb.Name.Equals("Money"))
+			{
+				hb.Visible = false;
+				IEnumerable<HelpBox> helpboxes = TheHelpBoxes;
+
+				List<HelpBox> temp = helpboxes.Where(x => x.Name == "Placeable Objects").ToList();
+				temp[0].Visible = true;
+				return true;
+			}
+			else
+			{
+				return false;
 			}
 		}
 	}
