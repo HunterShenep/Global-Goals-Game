@@ -5,6 +5,7 @@ using GlobalGoalGame.Models.Placeable;
 using GlobalGoalGame.Models.Trees;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Microsoft.Xna.Framework.Media;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,6 +17,7 @@ namespace GlobalGoalGame
 		bool mouseReleased = true;
 		float mouseTargetDist;
 		float mouseTargetDistInfoBox;
+		private static int clickCount = 0;
 
 		public void Update(GameTime gameTime, MouseState theState)
 		{
@@ -32,10 +34,59 @@ namespace GlobalGoalGame
 					{
 						sb.DoStuff(gameTime, theState);
 					}
+
 				}
 
+
+				foreach(OakTree t in OakTree.TheOakTrees)
+				{
+					if (t.Draggable)
+					{
+						clickCount++;
+						if (clickCount > 1)
+						{
+							t.Draggable = false;
+							t.Texture = OakTree.Textures[0];
+							MediaPlayer.Play(Game1.OtherNoise);
+							t.HelpBox.SpriteZone = new RectangleZone(t.BadLocation, OakTree.TEXTURE_WIDTH, OakTree.TEXTURE_HEIGHT);
+							clickCount = 0;
+						}
+					}
+				}
+
+				foreach (SolarPanel s in SolarPanel.TheSolarPanels)
+				{
+					if (s.Draggable)
+					{
+						clickCount++;
+						if (clickCount > 1)
+						{
+							s.Draggable = false;
+							MediaPlayer.Play(Game1.OtherNoise);
+							s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT);
+							clickCount = 0;
+						}
+					}
+				}
+
+				foreach (WindTurbine s in WindTurbine.TheWindTurbines)
+				{
+					if (s.Draggable)
+					{
+						clickCount++;
+						if (clickCount > 1)
+						{
+							s.Draggable = false;
+							MediaPlayer.Play(Game1.OtherNoise);
+							s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, SolarPanel.TEXTURE_WIDTH, SolarPanel.TEXTURE_HEIGHT);
+							clickCount = 0;
+						}
+					}
+				}
+
+
 				//TrashSprite HelpBoxes
-				foreach(TrashSprite t in TrashSprite.TheTrash)
+				foreach (TrashSprite t in TrashSprite.TheTrash)
 				{
 					if (!t.HelpBox.Visible)
 					{

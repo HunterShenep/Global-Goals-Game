@@ -13,7 +13,7 @@ namespace GlobalGoalGame.Models.Button
 	class WindTurbineButton : SpriteButton
 	{
 		bool mReleased = true;
-		int clickCount = 0;
+		public static int ClickCount = 0;
 
 		public WindTurbineButton(String name, Texture2D texture, Vector2 location, int width, int height, float cost)
 			: base(name, texture, location, width, height, cost)
@@ -38,29 +38,6 @@ namespace GlobalGoalGame.Models.Button
 					}
 				}
 
-
-				//MOUSE LOGIC
-				if (mState.LeftButton == ButtonState.Pressed && mReleased == true)
-				{
-					clickCount++;
-
-					foreach (WindTurbine s in WindTurbine.TheWindTurbines)
-					{
-						if (s.Draggable && clickCount > 1)
-						{
-							s.Draggable = false;
-							clickCount = 0;
-							MediaPlayer.Play(Game1.OtherNoise);
-							s.HelpBox.SpriteZone = new RectangleZone(s.BadLocation, WindTurbine.TEXTURE_WIDTH, WindTurbine.TEXTURE_HEIGHT);
-						}
-					}
-					mReleased = false;
-				}
-
-				if (mState.LeftButton == ButtonState.Released)
-				{
-					mReleased = true;
-				}
 
 			}
 		}
